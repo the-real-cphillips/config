@@ -1,0 +1,27 @@
+[user]
+    name = Craig Phillips
+    email = cphillips@2u.com
+[alias]
+    co = checkout
+    ci = commit
+    st = status
+    br= branch
+    p = pull
+    d = diff
+    dc = diff --cached
+    l = log
+    sh = show
+    bl = blame
+[core]
+    pager = less -iR
+	editor = /usr/bin/vim
+[color]
+    ui = true
+[push]
+    default = simple
+[pull]
+    rebase = true
+[git-up "bundler"]
+	  check = true
+[git-up "fetch"]
+	prune = true
