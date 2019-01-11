@@ -93,5 +93,6 @@ source <(kubectl completion zsh)
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/vault vault
 export PATH="/usr/local/opt/openssl/bin:$PATH"
+eval $(thefuck --alias)
 
 config='/usr/bin/git --git-dir=/Users/cphillips/.cfg/ --work-tree=/Users/cphillips'
