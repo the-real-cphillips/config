@@ -13,4 +13,4 @@ alias tfpl="terraform plan | landscape"
 alias tmux_one="/usr/local/bin/tmux attach -t main || tmux new -s main"
 alias tmux_two="/usr/local/bin/tmux attach -t second || tmux new -s second"
 alias kube_login="~cphillips/k8s-login.py"
-alias config='/usr/bin/git --git-dir=/Users/cphillips/.cfg/ --work-tree=/Users/cphillips'
+alias config="/usr/bin/git --git-dir=${HOME}/.cfg/ --work-tree=${HOME}"
