@@ -13,8 +13,9 @@
     sh = show
     bl = blame
 [core]
+    autocrlf = true
     pager = less -iR
-	editor = /usr/bin/vim
+    editor = /usr/bin/vim
 [color]
     ui = true
 [push]
@@ -22,6 +23,6 @@
 [pull]
     rebase = true
 [git-up "bundler"]
-	  check = true
+    check = true
 [git-up "fetch"]
-	prune = true
+    prune = true
