@@ -13,7 +13,7 @@
     sh = show
     bl = blame
 [core]
-    autocrlf = true
+#    autocrlf = true
     pager = less -iR
     editor = /usr/bin/vim
 [color]
