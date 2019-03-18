@@ -1,8 +1,10 @@
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/cphillips/.oh-my-zsh
 
-eval "$(ssh-agent -s)"
-ssh-add -A
+if [[ $(uname) == 'Darwin' ]]; then
+  eval "$(ssh-agent -s)"
+  ssh-add -A
+fi
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -57,7 +59,7 @@ plugins=(git virtualenv)
 ######## User configuration ##########
 
 export GOPATH="$HOME/go/workspace"
-export PATH="/usr/local/opt/python/libexec/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/usr/local/opt/go/libexec/bin/go:/usr/local/sbin:${GOPATH}/workspace:${GOPATH}/bin"
+export PATH="/usr/local/opt/python/libexec/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/usr/local/opt/go/libexec/bin/go:/usr/local/sbin:${GOPATH}/workspace:${GOPATH}/bin:/usr/local/opt/openssl/bin:$PATH"
 
 source $ZSH/oh-my-zsh.sh
 source ~/.my_shell.sh
@@ -89,10 +91,7 @@ source <(kubectl completion zsh)
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/vault vault
-export PATH="/usr/local/opt/openssl/bin:$PATH"
 eval $(thefuck --alias)
-
 config='/usr/bin/git --git-dir=/Users/cphillips/.cfg/ --work-tree=/Users/cphillips'
