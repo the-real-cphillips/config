@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/cphillips/.oh-my-zsh
+export ZSH=${HOME}/.oh-my-zsh
 
 if [[ $(uname) == 'Darwin' ]]; then
   eval "$(ssh-agent -s)"
@@ -94,4 +94,4 @@ source <(kubectl completion zsh)
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/vault vault
 eval $(thefuck --alias)
-config='/usr/bin/git --git-dir=/Users/cphillips/.cfg/ --work-tree=/Users/cphillips'
+config='/usr/bin/git --git-dir=${HOME}/.cfg/ --work-tree=${HOME}'
