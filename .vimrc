@@ -14,7 +14,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'hashivim/vim-terraform'
 Plug 'avakhov/vim-yaml'
-Plug 'fatih/vim-go'
 Plug 'edkolev/promptline.vim'
 call plug#end()
 
