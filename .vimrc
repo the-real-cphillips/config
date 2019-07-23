@@ -33,13 +33,14 @@ filetype plugin indent on    " required
 """"""""""""""""""""""""
 " Other VIM Settings
 syntax on
-set pastetoggle=<F3>
+set backspace=2
 set cursorline
-set laststatus=2
 set expandtab
-set shiftwidth=2
+set laststatus=2
 set number
+set pastetoggle=<F3>
 set relativenumber
+set shiftwidth=2
 "highlight LineNr term=NONE cterm=NONE ctermfg=grey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 highlight LineNr term=NONE cterm=NONE ctermfg=grey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 highlight CursorLine cterm=bold ctermbg=darkgrey

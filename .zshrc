@@ -10,7 +10,31 @@ fi
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME=""
+ZSH_THEME="powerlevel9k/powerlevel9k"
+
+# POWERLEVEL9K Settings github.com/bhilburn/powerlevel9k
+POWERLEVEL9K_MODE=nerdfont-complete
+POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=( virtualenv dir vcs )
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=( command_execution_time kubecontext )
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
+POWERLEVEL9K_DIR_DEFAULT_FOREGROUND='black'
+POWERLEVEL9K_DIR_DEFAULT_BACKGROUND='grey'
+POWERLEVEL9K_DIR_HOME_FOREGROUND="black"
+POWERLEVEL9K_DIR_HOME_BACKGROUND="grey"
+POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND="black"
+POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND="grey"
+POWERLEVEL9K_KUBECONTEXT_FOREGROUND='black'
+POWERLEVEL9K_KUBECONTEXT_BACKGROUND='grey'
+POWERLEVEL9K_VCS_CLEAN_FOREGROUND='green'
+POWERLEVEL9K_VCS_CLEAN_BACKGROUND='black'
+POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND='yellow'
+POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='black'
+POWERLEVEL9K_VCS_MODIFIED_FOREGROUND='red'
+POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='black'
+POWERLEVEL9K_VIRTUALENV_FOREGROUND="green"
+POWERLEVEL9K_VIRTUALENV_BACKGROUND="black"
+
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -58,11 +82,11 @@ plugins=(git virtualenv)
 
 ######## User configuration ##########
 
-export GOPATH="$HOME/go/workspace"
+export GOPATH="$HOME/go"
 export PATH="/usr/local/opt/python/libexec/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/usr/local/opt/go/libexec/bin/go:/usr/local/sbin:${GOPATH}/workspace:${GOPATH}/bin:/usr/local/opt/openssl/bin:$PATH"
 
 source $ZSH/oh-my-zsh.sh
-source ~/.my_shell.sh
+#source ~/.my_shell.sh
 source <(kubectl completion zsh)
 
 # export MANPATH="/usr/local/man:$MANPATH"

@@ -24,6 +24,8 @@
 	<integer>4</integer>
 	<key>LoadPrefsFromCustomFolder</key>
 	<true/>
+	<key>NSFontPanelAttributes</key>
+	<string>1, 0</string>
 	<key>NSNavLastRootDirectory</key>
 	<string>~/iterm2-settings</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
@@ -59,14 +61,20 @@
 	</data>
 	<key>NSTableView Supports v2 KeyBingingTable</key>
 	<true/>
+	<key>NSWindow Frame NSFontPanel</key>
+	<string>-1631 -40 445 103 -2560 -150 2560 1440 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>530 493 620 392 0 0 1680 1050 </string>
+	<string>-1590 636 620 392 -2560 -150 2560 1440 </string>
+	<key>NSWindow Frame SessionsPreferences</key>
+	<string>268 126 606 469 0 0 1680 1050 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>-2023 -72 1018 447 -2560 -390 2560 1440 </string>
+	<string>-2025 273 928 394 -2560 -150 2560 1440 </string>
+	<key>NSWindow Frame UKCrashReporter</key>
+	<string>127 444 592 584 0 0 1680 1028 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>173 97 570 402 0 0 1680 1050 </string>
+	<string>-2465 -72 570 377 -2560 -150 2560 1440 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>-2182 -214 570 402 -2560 -390 2560 1418 </string>
+	<string>-2182 -176 570 402 -2560 -390 2560 1417 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -170,12 +178,16 @@
 			</dict>
 			<key>Ansi 4 Color</key>
 			<dict>
+				<key>Alpha Component</key>
+				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.73333334922790527</real>
+				<real>0.842681884765625</real>
+				<key>Color Space</key>
+				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.0</real>
+				<real>0.34769005309532752</real>
 				<key>Red Component</key>
-				<real>0.0</real>
+				<real>0.24178756959736347</real>
 			</dict>
 			<key>Ansi 5 Color</key>
 			<dict>
@@ -226,12 +238,16 @@
 			<true/>
 			<key>Background Color</key>
 			<dict>
+				<key>Alpha Component</key>
+				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.0</real>
+				<real>0.0391845703125</real>
+				<key>Color Space</key>
+				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.0</real>
+				<real>0.0391845703125</real>
 				<key>Red Component</key>
-				<real>0.0</real>
+				<real>0.0391845703125</real>
 			</dict>
 			<key>Background Image Location</key>
 			<string></string>
@@ -602,7 +618,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>RobotoMonoForPowerline-Regular 12</string>
+			<string>HackNerdFontComplete-Regular 12</string>
 			<key>Option Key Sends</key>
 			<integer>0</integer>
 			<key>Prompt Before Closing 2</key>
@@ -667,6 +683,10 @@
 			<string>/Users/cphillips</string>
 		</dict>
 	</array>
+	<key>NoSyncHaveRequestedFullDiskAccess</key>
+	<true/>
+	<key>NoSyncHaveWarnedAboutIncompatibleSoftware</key>
+	<true/>
 	<key>NoSyncHaveWarnedAboutPasteConfirmationChange</key>
 	<true/>
 	<key>NoSyncInstallationId</key>
@@ -731,7 +751,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-08-16T11:18:11Z</date>
+	<date>2019-04-27T20:05:19Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>ShowFullScreenTabBar</key>
@@ -744,6 +764,8 @@
 	<true/>
 	<key>TripleClickSelectsFullWrappedLines</key>
 	<false/>
+	<key>UKCrashReporterLastCrashReportDate</key>
+	<real>1548336128</real>
 	<key>WordCharacters</key>
 	<string>/-+\~_.</string>
 	<key>findIgnoreCase_iTerm</key>
@@ -753,7 +775,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.2.0</string>
+	<string>3.2.8</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
