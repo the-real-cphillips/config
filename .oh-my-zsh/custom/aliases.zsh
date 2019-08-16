@@ -15,5 +15,6 @@ alias g="/usr/bin/git"
 
 # Molecule aliases
 alias m='molecule'
+alias mc='molecule converge'
 alias ml='molecule lint'
 alias mt='molecule test'
