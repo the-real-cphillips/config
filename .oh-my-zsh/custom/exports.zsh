@@ -8,6 +8,8 @@ export VAULT_ADDR=https://vault.main.prod.2u.com:8200/
 export VAULT_CACERT=$HOME/.certs/vault-ca.pem
 
 # Ansible Exports
-export ANSIBLE_INVENTORY=/Users/cphillips/work/ansible/inventory/ec2.py
-export EC2_INI_PATH=/Users/cphillips/work/ansible/inventory/ec2.ini
+export ANSIBLE_INVENTORY=/Users/cphillips/.ansible/aws_ec2.yml
 export ANSIBLE_NOCOWS=1
+
+# Causes issues since High Sierra with forking processes.
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
