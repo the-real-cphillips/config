@@ -1,3 +1,13 @@
+###############################
+### Terraform Swap Function ###
+###############################
+
+function tfv(){
+  ln -f -s /usr/local/bin/terraform_0.${1} /usr/local/bin/terraform
+  echo "Changed Terraform Version to ${1}"
+}
+
+
 ##############################
 #### AWS CLI Functions ####
 ##############################

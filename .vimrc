@@ -15,6 +15,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'hashivim/vim-terraform'
 Plug 'avakhov/vim-yaml'
 Plug 'edkolev/promptline.vim'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'aonemd/kuroi.vim'
 call plug#end()
 
 """" Plugin Configurations
@@ -41,7 +43,8 @@ set number
 set pastetoggle=<F3>
 set relativenumber
 set shiftwidth=2
-"highlight LineNr term=NONE cterm=NONE ctermfg=grey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
-highlight LineNr term=NONE cterm=NONE ctermfg=grey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
-highlight CursorLine cterm=bold ctermbg=darkgrey
-highlight CursorLineNR cterm=bold ctermbg=NONE ctermfg=red
+
+""" Color Stuff
+set t_Co=256
+set background=dark
+color kuroi

@@ -3,7 +3,7 @@ export ZSH=${HOME}/.oh-my-zsh
 
 if [[ $(uname) == 'Darwin' ]]; then
   eval "$(ssh-agent -s)"
-  ssh-add -A
+  ssh-add -K ${HOME}/.ssh/id_rsa
 fi
 
 # Set name of the theme to load.
