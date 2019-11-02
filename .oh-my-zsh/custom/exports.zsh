@@ -7,7 +7,7 @@ export KUBE_EDITOR="vim"
 export ANSIBLE_INVENTORY=${HOME}/.ansible/aws_ec2.yml
 export ANSIBLE_NOCOWS=1
 
-if [[ $(uname) == 'Darwin']]; then
+if [[ $(uname) == 'Darwin' ]]; then
   # Causes issues since High Sierra with forking processes.
   export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 fi
