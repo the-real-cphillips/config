@@ -1,3 +1,6 @@
+# Golang
+export GOPATH="$HOME/go"
+
 # Kubernetes Exports
 export KUBECONFIG=${HOME}/.kube/config
 export KUBERNETES_PROVIDER=aws

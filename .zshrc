@@ -80,12 +80,11 @@ HIST_STAMPS="mm/dd/yyyy"
 plugins=(ansible git virtualenv)
 
 ######## User configuration ##########
-
-export GOPATH="$HOME/go"
+#
 export PATH="/usr/local/opt/python/libexec/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/usr/local/opt/go/libexec/bin/go:/usr/local/sbin:${GOPATH}/workspace:${GOPATH}/bin:/usr/local/opt/openssl/bin:$PATH"
 
 source $ZSH/oh-my-zsh.sh
-#source ~/.my_shell.sh
+# source ~/.my_shell.sh
 source <(kubectl completion zsh)
 
 # export MANPATH="/usr/local/man:$MANPATH"
