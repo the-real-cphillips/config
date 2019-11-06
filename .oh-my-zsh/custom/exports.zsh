@@ -1,5 +1,8 @@
 # Golang
-export GOPATH="$HOME/go"
+export GOPATH=$HOME/Go
+export GOROOT=/usr/local/opt/go/libexec
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$GOROOT/bin
 
 # Kubernetes Exports
 export KUBECONFIG=${HOME}/.kube/config
