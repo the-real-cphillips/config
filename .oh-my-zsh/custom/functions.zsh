@@ -4,10 +4,10 @@
 
 function tfv(){
   if [[ ${1} == "" ]]; then
-    echo "[I] Current Terraform Version: $(tf version)" 
+    echo "\e[33m[I] Current Terraform Version:\e[0m \e[32m$(tf version | head -n1 | awk '{ print $2}')\e[1m" 
   else
     ln -f -s /usr/local/bin/terraform_0.${1} /usr/local/bin/terraform
-    echo "[√] Changed Terraform Version to ${1}"
+    echo "\e[32m[√]\e[0m \e[33mChanged Terraform Version to:\e[0m \e[32m$(tf version | head -n1 | awk '{ print $2}')\e[1m"
   fi 
 }
 
