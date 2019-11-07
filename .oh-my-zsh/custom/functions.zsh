@@ -3,8 +3,12 @@
 ###############################
 
 function tfv(){
-  ln -f -s /usr/local/bin/terraform_0.${1} /usr/local/bin/terraform
-  echo "Changed Terraform Version to ${1}"
+  if [[ ${1} == "" ]]; then
+    echo "[I] Current Terraform Version: $(tf version)" 
+  else
+    ln -f -s /usr/local/bin/terraform_0.${1} /usr/local/bin/terraform
+    echo "[√] Changed Terraform Version to ${1}"
+  fi 
 }
 
 
