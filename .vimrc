@@ -1,4 +1,4 @@
-""""""""""""""""""""""""""" 
+"""""""""""""""""""""""""""
 """" Setting up Plug
 """ Auto install of plug
 if empty(glob('~/.vim/autoload/plug.vim'))

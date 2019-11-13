@@ -9,7 +9,11 @@ if [[ $(uname) == 'Darwin' ]]; then
   # Look in ~/.oh-my-zsh/themes/
   # Optionally, if you set this to "random", it'll load a random theme each
   # time that oh-my-zsh is loaded.
-  ZSH_THEME="powerlevel9k/powerlevel9k"
+  if [[ -n $SSH_CONNECTION ]]; then
+    export ZSH_THEME="robbyrussell"
+  else
+    export ZSH_THEME="powerlevel9k/powerlevel9k"
+  fi
   
   # POWERLEVEL9K Settings github.com/bhilburn/powerlevel9k
   POWERLEVEL9K_MODE=nerdfont-complete

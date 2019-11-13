@@ -11,9 +11,25 @@ function tfv(){
   fi 
 }
 
+###############################
+####### AD Lookup Stuff #######
+###############################
+function ad-get-users-groups
+{
+  local user=${1:?"No Username Provided/"}
+  dscl '/Active Directory/2TOR/All Domains' read "/Users/${user}" dsAttrTypeNative:memberOf \
+    | (read -r; printf "%s\n" "$REPLY"; sort -f)
+}
+
+function ad-get-group-members
+{
+  local group=${1:?"No Group Provided/"}
+  dscl '/Active Directory/2TOR/All Domains' read "/Groups/${group}" GroupMembership \
+    | (read -r; printf "%s\n" "$REPLY"; sort -f)
+}
 
 ##############################
-#### AWS CLI Functions ####
+##### AWS CLI Functions ######
 ##############################
 
 which aws > /dev/null 2>&1
@@ -173,3 +189,4 @@ if [[ ${KC_RET} -eq 0 ]]; then
     kubectl exec -it $pod $container -- env COLUMNS=$cols LINES=$lines TERM=$term "$cmd"
   }
 fi
+
