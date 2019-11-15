@@ -1,14 +1,22 @@
 ###############################
-### Terraform Swap Function ###
+##### Terraform Functions #####
 ###############################
 
 function tfv(){
-  if [[ ${1} == "" ]]; then
+  local version=${1}
+  if [[ ${version} == "" ]]; then
     echo "\e[33m[I] Current Terraform Version:\e[0m \e[32m$(tf version | head -n1 | awk '{ print $2}')\e[1m" 
   else
-    ln -f -s /usr/local/bin/terraform_0.${1} /usr/local/bin/terraform
+    ln -f -s /usr/local/bin/terraform_0.${version} /usr/local/bin/terraform
     echo "\e[32m[√]\e[0m \e[33mChanged Terraform Version to:\e[0m \e[32m$(tf version | head -n1 | awk '{ print $2}')\e[1m"
   fi 
+}
+
+function drift
+{
+  local domain=${1:?"No Domain Supplied"}
+  tf workspace select ${domain} && \
+    tf apply -var-file tfvars/${domain}.tfvars
 }
 
 ###############################
