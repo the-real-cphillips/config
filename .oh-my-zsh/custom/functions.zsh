@@ -3,21 +3,50 @@
 ###############################
 
 function tfv(){
-  local version=${1}
-  if [[ ${version} == "" ]]; then
-    echo "\e[33m[I] Current Terraform Version:\e[0m \e[32m$(tf version | head -n1 | awk '{ print $2}')\e[1m" 
-  else
-    ln -f -s /usr/local/bin/terraform_0.${version} /usr/local/bin/terraform
-    echo "\e[32m[√]\e[0m \e[33mChanged Terraform Version to:\e[0m \e[32m$(tf version | head -n1 | awk '{ print $2}')\e[1m"
-  fi 
+  local INPUT=${1}
+  local version=${2}
+
+  case ${INPUT} in 
+    get) echo "Downloading Version: ${version}"
+         curl -o /tmp/terraform.zip  https://releases.hashicorp.com/terraform/${version}/terraform_${version}_darwin_amd64.zip
+         unzip /tmp/terraform -d /tmp/terraform 
+         chmod +x /tmp/terraform/terraform && mv /tmp/terraform/terraform /usr/local/bin/terraform_0.12
+         rm -rf /tmp/terraform*
+      ;;
+    set) ln -f -s /usr/local/bin/terraform_0.${version} /usr/local/bin/terraform
+         echo "\e[32m[√]\e[0m \e[33mChanged Terraform Version to:\e[0m \e[32m$(tf version | head -n1 | awk '{ print $2}')\e[1m"
+      ;;
+    *)  echo "\e[33m[I] Current Terraform Version:\e[0m \e[32m$(tf version | head -n1 | awk '{ print $2}')\e[1m" 
+  esac
 }
 
-function drift
+
+# Open Current Repo (MAC ONLY)
+function open_repo()
 {
-  local domain=${1:?"No Domain Supplied"}
-  tf workspace select ${domain} && \
-    tf apply -var-file tfvars/${domain}.tfvars
+  if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+    local url
+    url=$(git config --get remote.origin.url \
+      | sed -e "s/git@/https:\/\//g" \
+      | sed -e "s/com:/com\//"
+    )
+    open "$url"
+  else
+    echo 'Not inside git repository' 1>&2
+    return 1
+  fi
 }
+#function open_repo(){
+#  local -a url=($(git config --get remote.origin.url| sed -e "s/git@/https:\/\//g" | sed -e 's/com:/com\//'))
+#  open ${url}
+#}
+#
+#function drift
+#{
+#  local domain=${1:?"No Domain Supplied"}
+#  tf workspace select ${domain} && \
+#    tf apply -var-file tfvars/${domain}.tfvars
+#}
 
 ###############################
 ####### AD Lookup Stuff #######

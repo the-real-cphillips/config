@@ -122,3 +122,5 @@ autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/vault vault
 eval $(thefuck --alias)
 config='/usr/bin/git --git-dir=${HOME}/.cfg/ --work-tree=${HOME}'
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
