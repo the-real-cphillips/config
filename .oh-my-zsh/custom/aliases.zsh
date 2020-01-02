@@ -19,3 +19,5 @@ alias ml='molecule lint'
 alias mt='molecule test'
 alias mlog='molecule login'
 
+# Ansible
+alias atag='/Users/cphillips/work/repos/ops-tools/ansible-role-tags/latest_role_tags.py'
