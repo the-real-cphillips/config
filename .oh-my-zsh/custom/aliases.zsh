@@ -9,8 +9,8 @@ alias kube_login="~cphillips/k8s-login.py"
 alias lower="python -c '\''import sys; string = sys.argv[1]; string.lower()'"
 alias servethis="python -m SimpleHTTPServer $1"
 alias showhidden="defaults write com.apple.finder AppleShowAllFiles TRUE && killall Finder"
-alias tf="terraform"
-alias tfp="terraform plan"
+alias tf="/usr/local/bin/terraform"
+alias tfp="/usr/local/bin/terraform plan"
 
 # Molecule aliases
 alias m='molecule'

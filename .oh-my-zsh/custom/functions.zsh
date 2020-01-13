@@ -10,10 +10,13 @@ function tfv(){
     get) echo "Downloading Version: ${version}"
          curl -o /tmp/terraform.zip  https://releases.hashicorp.com/terraform/${version}/terraform_${version}_darwin_amd64.zip
          unzip /tmp/terraform -d /tmp/terraform 
-         chmod +x /tmp/terraform/terraform && mv /tmp/terraform/terraform /usr/local/bin/terraform_0.12
+         chmod +x /tmp/terraform/terraform
+         mv /tmp/terraform/terraform /usr/local/bin/terraform_${version}
          rm -rf /tmp/terraform*
+         tfv set ${version}
       ;;
-    set) ln -f -s /usr/local/bin/terraform_0.${version} /usr/local/bin/terraform
+    set) echo "Setting Version: $version"
+         ln -f -s /usr/local/bin/terraform_${version} /usr/local/bin/terraform
          echo "\e[32m[√]\e[0m \e[33mChanged Terraform Version to:\e[0m \e[32m$(tf version | head -n1 | awk '{ print $2}')\e[1m"
       ;;
     *)  echo "\e[33m[I] Current Terraform Version:\e[0m \e[32m$(tf version | head -n1 | awk '{ print $2}')\e[1m" 
@@ -36,6 +39,7 @@ function open_repo()
     return 1
   fi
 }
+
 #function open_repo(){
 #  local -a url=($(git config --get remote.origin.url| sed -e "s/git@/https:\/\//g" | sed -e 's/com:/com\//'))
 #  open ${url}
