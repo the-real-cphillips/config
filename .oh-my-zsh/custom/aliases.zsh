@@ -11,6 +11,8 @@ alias servethis="python -m SimpleHTTPServer $1"
 alias showhidden="defaults write com.apple.finder AppleShowAllFiles TRUE && killall Finder"
 alias tf="/usr/local/bin/terraform"
 alias tfp="/usr/local/bin/terraform plan"
+alias tf11="tfv set 0.11.14"
+alias tf12="tfv set 0.12.19"
 
 # Molecule aliases
 alias m='molecule'
