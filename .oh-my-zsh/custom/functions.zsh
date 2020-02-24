@@ -24,6 +24,11 @@ function tfv(){
 }
 
 
+#
+function github-find {
+  curl -s -u $GITHUB_USERNAME:"$GITHUB_TOKEN" https://api.github.com/search/code\?q\=$1+in:file+org:$GITHUB_ORG | jq '.items | .[].html_url'
+}
+
 # Open Current Repo (MAC ONLY)
 function open_repo()
 {
@@ -230,4 +235,5 @@ if [[ ${KC_RET} -eq 0 ]]; then
     kubectl exec -it $pod $container -- env COLUMNS=$cols LINES=$lines TERM=$term "$cmd"
   }
 fi
+
 

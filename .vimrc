@@ -48,3 +48,6 @@ set shiftwidth=2
 set t_Co=256
 set background=dark
 color kuroi
+
+"Remove all trailing whitespace by pressing F5
+nnoremap <F6> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
