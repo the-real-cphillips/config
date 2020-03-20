@@ -44,10 +44,14 @@ set pastetoggle=<F3>
 set relativenumber
 set shiftwidth=2
 
+
 """ Color Stuff
 set t_Co=256
 set background=dark
-color kuroi
+colorscheme kuroi
+
+hi CursorColumn cterm=NONE ctermbg=darkgrey ctermfg=red guibg=darkgrey guifg=darkred
+nnoremap <Leader>c :set cursorcolumn!<CR>
 
 "Remove all trailing whitespace by pressing F6
 nnoremap <F6> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>

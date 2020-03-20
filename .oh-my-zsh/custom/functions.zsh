@@ -2,6 +2,19 @@
 ##### Terraform Functions #####
 ###############################
 
+function tags(){
+  local ROLE_NAME=${1}
+
+  printf '{
+      "repo_name": "'${ROLE_NAME}'"
+    }'| http --pretty=format --print=b --follow --timeout 3600 POST https://uijetpgndg.execute-api.us-west-2.amazonaws.com/default/current-tags \
+        x-api-key:"$(aws ssm get-parameter --name /devops/cphillips/api_key --with-decryption | jq -r '.Parameter.Value')" \
+        Content-Type:'application/json'
+#  curl -X POST 'https://uijetpgndg.execute-api.us-west-2.amazonaws.com/default/current-tags' \
+#    --header "x-api-key: $(aws ssm get-parameter --name /devops/cphillips/api_key --with-decryption | jq -r '.Parameter.Value')" \ 
+#    -d '{"repo_name":"'${ROLE_NAME}'"}' | printf
+}
+
 function tfv(){
   local INPUT=${1}
   local version=${2}
@@ -235,5 +248,3 @@ if [[ ${KC_RET} -eq 0 ]]; then
     kubectl exec -it $pod $container -- env COLUMNS=$cols LINES=$lines TERM=$term "$cmd"
   }
 fi
-
-
