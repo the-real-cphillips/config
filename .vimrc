@@ -13,6 +13,7 @@ Plug 'puppetlabs/puppet-syntax-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'hashivim/vim-terraform'
+"Plug 'elzr/vim-json'
 Plug 'avakhov/vim-yaml'
 Plug 'edkolev/promptline.vim'
 Plug 'terryma/vim-multiple-cursors'
@@ -52,6 +53,7 @@ colorscheme kuroi
 
 hi CursorColumn cterm=NONE ctermbg=darkgrey ctermfg=red guibg=darkgrey guifg=darkred
 nnoremap <Leader>c :set cursorcolumn!<CR>
+nnoremap <Leader>j :set foldmethod=syntax<CR>
 
 "Remove all trailing whitespace by pressing F6
 nnoremap <F6> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>

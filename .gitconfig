@@ -26,3 +26,5 @@
     check = true
 [git-up "fetch"]
     prune = true
+[pager]
+	branch = false

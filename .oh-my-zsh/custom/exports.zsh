@@ -17,3 +17,6 @@ if [[ $(uname) == 'Darwin' ]]; then
   # Causes issues since High Sierra with forking processes.
   export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 fi
+
+# Pager Shenanigans
+export AWS_PAGER=""
