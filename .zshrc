@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # Path to your oh-my-zsh installation.
 export ZSH=${HOME}/.oh-my-zsh
 
@@ -12,31 +19,31 @@ if [[ $(uname) == 'Darwin' ]]; then
   if [[ -n $SSH_CONNECTION ]]; then
     export ZSH_THEME="robbyrussell"
   else
-    export ZSH_THEME="powerlevel9k/powerlevel9k"
+    export ZSH_THEME="powerlevel10k/powerlevel10k"
   fi
   
   # POWERLEVEL9K Settings github.com/bhilburn/powerlevel9k
-  POWERLEVEL9K_MODE=nerdfont-complete
-  POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-  POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=( virtualenv dir vcs )
-  POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=( command_execution_time kubecontext )
-  POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
-  POWERLEVEL9K_DIR_DEFAULT_FOREGROUND='black'
-  POWERLEVEL9K_DIR_DEFAULT_BACKGROUND='grey'
-  POWERLEVEL9K_DIR_HOME_FOREGROUND="black"
-  POWERLEVEL9K_DIR_HOME_BACKGROUND="grey"
-  POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND="black"
-  POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND="grey"
-  POWERLEVEL9K_KUBECONTEXT_FOREGROUND='black'
-  POWERLEVEL9K_KUBECONTEXT_BACKGROUND='grey'
-  POWERLEVEL9K_VCS_CLEAN_FOREGROUND='green'
-  POWERLEVEL9K_VCS_CLEAN_BACKGROUND='black'
-  POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND='yellow'
-  POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='black'
-  POWERLEVEL9K_VCS_MODIFIED_FOREGROUND='red'
-  POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='black'
-  POWERLEVEL9K_VIRTUALENV_FOREGROUND="green"
-  POWERLEVEL9K_VIRTUALENV_BACKGROUND="black"
+#  POWERLEVEL9K_MODE=nerdfont-complete
+#  POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+#  POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=( virtualenv dir vcs )
+#  POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=( command_execution_time kubecontext )
+#  POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
+#  POWERLEVEL9K_DIR_DEFAULT_FOREGROUND='black'
+#  POWERLEVEL9K_DIR_DEFAULT_BACKGROUND='grey'
+#  POWERLEVEL9K_DIR_HOME_FOREGROUND="black"
+#  POWERLEVEL9K_DIR_HOME_BACKGROUND="grey"
+#  POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND="black"
+#  POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND="grey"
+##  POWERLEVEL9K_KUBECONTEXT_FOREGROUND='black'
+##  POWERLEVEL9K_KUBECONTEXT_BACKGROUND='grey'
+#  POWERLEVEL9K_VCS_CLEAN_FOREGROUND='green'
+#  POWERLEVEL9K_VCS_CLEAN_BACKGROUND='black'
+#  POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND='yellow'
+#  POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='black'
+#  POWERLEVEL9K_VCS_MODIFIED_FOREGROUND='red'
+#  POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='black'
+#  POWERLEVEL9K_VIRTUALENV_FOREGROUND="green"
+#  POWERLEVEL9K_VIRTUALENV_BACKGROUND="black"
 fi
 
 # Uncomment the following line to use case-sensitive completion.
@@ -124,3 +131,6 @@ eval $(thefuck --alias)
 config='/usr/bin/git --git-dir=${HOME}/.cfg/ --work-tree=${HOME}'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
