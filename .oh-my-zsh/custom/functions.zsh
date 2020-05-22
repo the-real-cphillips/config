@@ -1,6 +1,27 @@
 ###############################
-##### Terraform Functions #####
+###### Custom Functions #######
 ###############################
+
+function 2u-vpn
+{
+  local command="${1:-status}"
+  local -r _vpn_bin='/opt/cisco/anyconnect/bin/vpn'
+  local -r _vpn_net='2U Corp Network'
+  case "$command" in
+    'status')
+      echo -e 'Checking current VPN status...\n'
+      eval "${_vpn_bin} -s status" ;;
+    'conn')
+      echo -e 'Connecting to VPN...\n'
+      _vpn_autoconnect ;;
+    'disc')
+      echo -e 'Disconnecting from VPN...\n'
+      eval "${_vpn_bin} -s disconnect" ;;
+    *)
+      echo "Invalid option '${command}' ([status]|conn|disc)"
+      return 1 ;;
+  esac
+}
 
 function tags(){
   local ROLE_NAME=${1}
@@ -10,10 +31,11 @@ function tags(){
     }'| http --pretty=format --print=b --follow --timeout 3600 POST https://uijetpgndg.execute-api.us-west-2.amazonaws.com/default/current-tags \
         x-api-key:"$(aws ssm get-parameter --name /devops/cphillips/api_key --with-decryption | jq -r '.Parameter.Value')" \
         Content-Type:'application/json'
-#  curl -X POST 'https://uijetpgndg.execute-api.us-west-2.amazonaws.com/default/current-tags' \
-#    --header "x-api-key: $(aws ssm get-parameter --name /devops/cphillips/api_key --with-decryption | jq -r '.Parameter.Value')" \ 
-#    -d '{"repo_name":"'${ROLE_NAME}'"}' | printf
 }
+
+###############################
+##### Terraform Functions #####
+###############################
 
 function tfv(){
   local INPUT=${1}
@@ -57,18 +79,6 @@ function open_repo()
     return 1
   fi
 }
-
-#function open_repo(){
-#  local -a url=($(git config --get remote.origin.url| sed -e "s/git@/https:\/\//g" | sed -e 's/com:/com\//'))
-#  open ${url}
-#}
-#
-#function drift
-#{
-#  local domain=${1:?"No Domain Supplied"}
-#  tf workspace select ${domain} && \
-#    tf apply -var-file tfvars/${domain}.tfvars
-#}
 
 ###############################
 ####### AD Lookup Stuff #######
