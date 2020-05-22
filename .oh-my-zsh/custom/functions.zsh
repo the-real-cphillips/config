@@ -8,17 +8,17 @@ function 2u-vpn
   local -r _vpn_bin='/opt/cisco/anyconnect/bin/vpn'
   local -r _vpn_net='2U Corp Network'
   case "$command" in
-    'status')
+    's')
       echo -e 'Checking current VPN status...\n'
       eval "${_vpn_bin} -s status" ;;
-    'conn')
+    'c')
       echo -e 'Connecting to VPN...\n'
       _vpn_autoconnect ;;
-    'disc')
+    'd')
       echo -e 'Disconnecting from VPN...\n'
       eval "${_vpn_bin} -s disconnect" ;;
     *)
-      echo "Invalid option '${command}' ([status]|conn|disc)"
+      echo "Invalid option '${command}' ([(s)tatus]|(c)onnect|(d)isconnect)"
       return 1 ;;
   esac
 }
