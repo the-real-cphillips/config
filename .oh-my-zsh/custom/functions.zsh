@@ -1,6 +1,12 @@
 ###############################
 ###### Custom Functions #######
 ###############################
+#
+
+function login() {
+  2u-vpn c
+  /usr/local/bin/_login
+}
 
 function 2u-vpn() {
   local command="${1:-s}"
