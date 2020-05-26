@@ -2,9 +2,8 @@
 ###### Custom Functions #######
 ###############################
 
-function 2u-vpn
-{
-  local command="${1:-status}"
+function 2u-vpn() {
+  local command="${1:-s}"
   local -r _vpn_bin='/opt/cisco/anyconnect/bin/vpn'
   local -r _vpn_net='2U Corp Network'
   case "$command" in
