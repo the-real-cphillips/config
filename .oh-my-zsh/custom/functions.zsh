@@ -5,6 +5,7 @@
 
 function login() {
   2u-vpn c
+  sleep 5
   /usr/local/bin/_login
 }
 
