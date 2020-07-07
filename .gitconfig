@@ -12,6 +12,7 @@
     l = log
     sh = show
     bl = blame
+    rename = "!git branch -m $1 $2 && git push origin :$1 $2 -u #"
 [core]
 #    autocrlf = true
     pager = less -iR
