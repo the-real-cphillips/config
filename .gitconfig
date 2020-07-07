@@ -2,17 +2,17 @@
     name = Craig Phillips
     email = cphillips@2u.com
 [alias]
-    co = checkout
-    ci = commit
-    st = status
+    bl = blame
     br= branch
-    p = pull
+    ci = commit
+    co = checkout
     d = diff
     dc = diff --cached
     l = log
-    sh = show
-    bl = blame
+    p = pull
     rename = "!git branch -m $1 $2 && git push origin :$1 $2 -u #"
+    sh = show
+    st = status
 [core]
 #    autocrlf = true
     pager = less -iR
