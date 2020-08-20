@@ -29,14 +29,23 @@ function 2u-vpn() {
   esac
 }
 
-function tags(){
-  local ROLE_NAME=${1}
+#function tags(){
+#  local ROLE_NAME=${1}
+#
+#  printf '{
+#      "repo_name": "'${ROLE_NAME}'"
+#    }'| http --pretty=format --print=b --follow --timeout 3600 POST https://uijetpgndg.execute-api.us-west-2.amazonaws.com/default/current-tags \
+#        x-api-key:"$(aws ssm get-parameter --name /devops/cphillips/api_key --with-decryption | jq -r '.Parameter.Value')" \
+#        Content-Type:'application/json'
+#}
 
-  printf '{
-      "repo_name": "'${ROLE_NAME}'"
-    }'| http --pretty=format --print=b --follow --timeout 3600 POST https://uijetpgndg.execute-api.us-west-2.amazonaws.com/default/current-tags \
-        x-api-key:"$(aws ssm get-parameter --name /devops/cphillips/api_key --with-decryption | jq -r '.Parameter.Value')" \
-        Content-Type:'application/json'
+function viewfind(){
+  local REPO_NAME=${1}
+
+  curl -s -X POST \
+    -H "x-api-key:$(aws ssm get-parameter --name /devops/viewfinder/api_key --with-decryption --output text --query 'Parameter.Value')" \
+    https://b349k8t33g.execute-api.us-west-2.amazonaws.com/default/tags \
+    -d "{ \"repo\" : \"${REPO_NAME}\" }"
 }
 
 ###############################
