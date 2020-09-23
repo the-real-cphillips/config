@@ -1,8 +1,11 @@
-###############################
-###### Custom Functions #######
-###############################
-#
+################################################################################
+############################### Custom Functions ###############################
+################################################################################
 
+
+###################################
+##### Miscellaneous Functions #####
+###################################
 function login() {
   2u-vpn c
   sleep 5
@@ -28,16 +31,6 @@ function 2u-vpn() {
       return 1 ;;
   esac
 }
-
-#function tags(){
-#  local ROLE_NAME=${1}
-#
-#  printf '{
-#      "repo_name": "'${ROLE_NAME}'"
-#    }'| http --pretty=format --print=b --follow --timeout 3600 POST https://uijetpgndg.execute-api.us-west-2.amazonaws.com/default/current-tags \
-#        x-api-key:"$(aws ssm get-parameter --name /devops/cphillips/api_key --with-decryption | jq -r '.Parameter.Value')" \
-#        Content-Type:'application/json'
-#}
 
 function viewfind(){
   local REPO_NAME=${1}
@@ -73,8 +66,17 @@ function tfv(){
   esac
 }
 
+############################
+##### Github Functions #####
+############################
 
-#
+# 2U Specific Clone
+function gclone () { 
+      git clone git@github.com:2uinc/$1
+}
+
+
+# Find? Untested
 function github-find {
   curl -s -u $GITHUB_USERNAME:"$GITHUB_TOKEN" https://api.github.com/search/code\?q\=$1+in:file+org:$GITHUB_ORG | jq '.items | .[].html_url'
 }
