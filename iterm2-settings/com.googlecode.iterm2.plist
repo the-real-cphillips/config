@@ -17,14 +17,18 @@
 	<key>Default Bookmark Guid</key>
 	<string>24CF20AC-4D23-4205-88DE-2DC5F69DF547</string>
 	<key>HapticFeedbackForEsc</key>
-	<false/>
+	<true/>
 	<key>HotkeyMigratedFromSingleToMulti</key>
 	<true/>
 	<key>LoadPrefsFromCustomFolder</key>
 	<true/>
 	<key>NSNavLastRootDirectory</key>
-	<string>~/iterm2-settings</string>
+	<string>~/Documents</string>
+	<key>NSNavLastUserSetHideExtensionButtonState</key>
+	<true/>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
+	<string>{712, 448}</string>
+	<key>NSNavPanelExpandedSizeForSaveMode</key>
 	<string>{712, 448}</string>
 	<key>NSQuotedKeystrokeBinding</key>
 	<string></string>
@@ -41,24 +45,24 @@
 	</array>
 	<key>NSTableView Columns v2 KeyBingingTable</key>
 	<data>
-	YnBsaXN0MDDUAQIDBAUGNjdYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3AS
-	AAGGoK4HCA8aGxwdHh8gJjAxMlUkbnVsbNIJCgsOWk5TLm9iamVjdHNWJGNsYXNzogwN
-	gAKACoAN0xAJChEVGVdOUy5rZXlzoxITFIADgASABaMWFxiABoAHgAiACVpJZGVudGlm
-	aWVyVVdpZHRoVkhpZGRlblEwI0BowAAAAAAACNIhIiMkWiRjbGFzc25hbWVYJGNsYXNz
-	ZXNcTlNEaWN0aW9uYXJ5oiMlWE5TT2JqZWN00xAJCicrGaMSExSAA4AEgAWjLC0YgAuA
-	DIAIgAlRMSNAdKGdsi0OVtIhIjM0Xk5TTXV0YWJsZUFycmF5ozM1JVdOU0FycmF5XxAP
-	TlNLZXllZEFyY2hpdmVy0Tg5VUFycmF5gAEACAARABoAIwAtADIANwBGAEwAUQBcAGMA
-	ZgBoAGoAbABzAHsAfwCBAIMAhQCJAIsAjQCPAJEAnACiAKkAqwC0ALUAugDFAM4A2wDe
-	AOcA7gDyAPQA9gD4APwA/gEAAQIBBAEGAQ8BFAEjAScBLwFBAUQBSgAAAAAAAAIBAAAA
+	YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMS
+	AAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVVBcnJheYABrgsMEx4fICEiIyQqNDU2VSRu
+	dWxs0g0ODxJaTlMub2JqZWN0c1YkY2xhc3OiEBGAAoAKgA3TFA0OFRkdV05TLmtleXOj
+	FhcYgAOABIAFoxobHIAGgAeACIAJWklkZW50aWZpZXJVV2lkdGhWSGlkZGVuUTAjQGjA
+	AAAAAAAI0iUmJyhaJGNsYXNzbmFtZVgkY2xhc3Nlc1xOU0RpY3Rpb25hcnmiJylYTlNP
+	YmplY3TTFA0OKy8doxYXGIADgASABaMwMRyAC4AMgAiACVExI0B0oZ2yLQ5W0iUmNzhe
+	TlNNdXRhYmxlQXJyYXmjNzkpV05TQXJyYXkACAARABoAJAApADIANwBJAEwAUgBUAGMA
+	aQBuAHkAgACDAIUAhwCJAJAAmACcAJ4AoACiAKYAqACqAKwArgC5AL8AxgDIANEA0gDX
+	AOIA6wD4APsBBAELAQ8BEQETARUBGQEbAR0BHwEhASMBLAExAUABRAAAAAAAAAIBAAAA
 	AAAAADoAAAAAAAAAAAAAAAAAAAFM
 	</data>
 	<key>NSTableView Sort Ordering v2 KeyBingingTable</key>
 	<data>
-	YnBsaXN0MDDUAQIDBAUGFBVYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3AS
-	AAGGoKMHCA1VJG51bGzSCQoLDFpOUy5vYmplY3RzViRjbGFzc6CAAtIODxARWiRjbGFz
-	c25hbWVYJGNsYXNzZXNeTlNNdXRhYmxlQXJyYXmjEBITV05TQXJyYXlYTlNPYmplY3Rf
-	EA9OU0tleWVkQXJjaGl2ZXLRFhdVQXJyYXmAAQgRGiMtMjc7QUZRWFlbYGt0g4ePmKqt
-	swAAAAAAAAEBAAAAAAAAABgAAAAAAAAAAAAAAAAAAAC1
+	YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMS
+	AAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVVBcnJheYABowsMEVUkbnVsbNINDg8QWk5T
+	Lm9iamVjdHNWJGNsYXNzoIAC0hITFBVaJGNsYXNzbmFtZVgkY2xhc3Nlc15OU011dGFi
+	bGVBcnJheaMUFhdXTlNBcnJheVhOU09iamVjdAgRGiQpMjdJTFJUWF5jbnV2eH2IkaCk
+	rAAAAAAAAAEBAAAAAAAAABgAAAAAAAAAAAAAAAAAAAC1
 	</data>
 	<key>NSTableView Supports v2 KeyBingingTable</key>
 	<true/>
@@ -67,10 +71,14 @@
 		<key>TB Is Shown</key>
 		<integer>1</integer>
 	</dict>
+	<key>NSWindow Frame NSNavPanelAutosaveName</key>
+	<string>666 651 347 181 0 0 1680 1050 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>-1590 518 620 392 -2560 -268 2560 1440 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>-1934 354 570 377 -2560 -268 2560 1440 </string>
+	<string>680 599 570 377 0 0 1680 1050 </string>
+	<key>NSWindow Frame iTerm Window 1</key>
+	<string>10 617 570 377 0 0 1680 1050 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -301,6 +309,8 @@
 			<real>1</real>
 			<key>Idle Code</key>
 			<integer>0</integer>
+			<key>Initial Text</key>
+			<string>start-tmux</string>
 			<key>Jobs to Ignore</key>
 			<array>
 				<string>rlogin</string>
@@ -635,8 +645,185 @@
 			<false/>
 			<key>Shortcut</key>
 			<string></string>
+			<key>Show Status Bar</key>
+			<true/>
 			<key>Silence Bell</key>
 			<false/>
+			<key>Status Bar Layout</key>
+			<dict>
+				<key>advanced configuration</key>
+				<dict>
+					<key>algorithm</key>
+					<integer>0</integer>
+					<key>auto-rainbow style</key>
+					<integer>0</integer>
+					<key>font</key>
+					<string>.AppleSystemUIFont 12</string>
+				</dict>
+				<key>components</key>
+				<array>
+					<dict>
+						<key>class</key>
+						<string>iTermStatusBarBatteryComponent</string>
+						<key>configuration</key>
+						<dict>
+							<key>knobs</key>
+							<dict>
+								<key>ShowPercentage</key>
+								<integer>1</integer>
+								<key>ShowTime</key>
+								<integer>1</integer>
+								<key>base: priority</key>
+								<real>5</real>
+								<key>shared text color</key>
+								<dict>
+									<key>Alpha Component</key>
+									<real>1</real>
+									<key>Blue Component</key>
+									<real>0.62999999523162842</real>
+									<key>Color Space</key>
+									<string>sRGB</string>
+									<key>Green Component</key>
+									<real>0.62999999523162842</real>
+									<key>Red Component</key>
+									<real>0.89999997615814209</real>
+								</dict>
+							</dict>
+							<key>layout advanced configuration dictionary value</key>
+							<dict>
+								<key>algorithm</key>
+								<integer>0</integer>
+								<key>auto-rainbow style</key>
+								<integer>0</integer>
+								<key>font</key>
+								<string>.AppleSystemUIFont 12</string>
+							</dict>
+						</dict>
+					</dict>
+					<dict>
+						<key>class</key>
+						<string>iTermStatusBarFixedSpacerComponent</string>
+						<key>configuration</key>
+						<dict>
+							<key>knobs</key>
+							<dict>
+								<key>base: priority</key>
+								<real>5</real>
+								<key>iTermStatusBarFixedSpacerComponentWidthKnob</key>
+								<integer>5</integer>
+							</dict>
+							<key>layout advanced configuration dictionary value</key>
+							<dict>
+								<key>algorithm</key>
+								<integer>0</integer>
+								<key>auto-rainbow style</key>
+								<integer>0</integer>
+							</dict>
+						</dict>
+					</dict>
+					<dict>
+						<key>class</key>
+						<string>iTermStatusBarCPUUtilizationComponent</string>
+						<key>configuration</key>
+						<dict>
+							<key>knobs</key>
+							<dict>
+								<key>base: priority</key>
+								<real>5</real>
+							</dict>
+							<key>layout advanced configuration dictionary value</key>
+							<dict>
+								<key>algorithm</key>
+								<integer>0</integer>
+								<key>auto-rainbow style</key>
+								<integer>0</integer>
+							</dict>
+						</dict>
+					</dict>
+					<dict>
+						<key>class</key>
+						<string>iTermStatusBarFixedSpacerComponent</string>
+						<key>configuration</key>
+						<dict>
+							<key>knobs</key>
+							<dict>
+								<key>base: compression resistance</key>
+								<integer>1</integer>
+								<key>base: priority</key>
+								<real>5</real>
+								<key>iTermStatusBarFixedSpacerComponentWidthKnob</key>
+								<integer>5</integer>
+							</dict>
+							<key>layout advanced configuration dictionary value</key>
+							<dict>
+								<key>algorithm</key>
+								<integer>0</integer>
+								<key>auto-rainbow style</key>
+								<integer>0</integer>
+							</dict>
+						</dict>
+					</dict>
+					<dict>
+						<key>class</key>
+						<string>iTermStatusBarMemoryUtilizationComponent</string>
+						<key>configuration</key>
+						<dict>
+							<key>knobs</key>
+							<dict>
+								<key>base: priority</key>
+								<real>5</real>
+							</dict>
+							<key>layout advanced configuration dictionary value</key>
+							<dict>
+								<key>algorithm</key>
+								<integer>0</integer>
+								<key>auto-rainbow style</key>
+								<integer>0</integer>
+							</dict>
+						</dict>
+					</dict>
+					<dict>
+						<key>class</key>
+						<string>iTermStatusBarClockComponent</string>
+						<key>configuration</key>
+						<dict>
+							<key>knobs</key>
+							<dict>
+								<key>base: compression resistance</key>
+								<integer>1</integer>
+								<key>base: priority</key>
+								<real>5</real>
+								<key>format</key>
+								<string>M/dd hh:mm</string>
+								<key>localize</key>
+								<integer>1</integer>
+								<key>shared text color</key>
+								<dict>
+									<key>Alpha Component</key>
+									<real>1</real>
+									<key>Blue Component</key>
+									<real>0.62999999523162842</real>
+									<key>Color Space</key>
+									<string>sRGB</string>
+									<key>Green Component</key>
+									<real>0.89999997615814209</real>
+									<key>Red Component</key>
+									<real>0.678600013256073</real>
+								</dict>
+							</dict>
+							<key>layout advanced configuration dictionary value</key>
+							<dict>
+								<key>algorithm</key>
+								<integer>0</integer>
+								<key>auto-rainbow style</key>
+								<integer>0</integer>
+								<key>font</key>
+								<string>.AppleSystemUIFont 12</string>
+							</dict>
+						</dict>
+					</dict>
+				</array>
+			</dict>
 			<key>Sync Title</key>
 			<false/>
 			<key>Tags</key>
@@ -667,25 +854,35 @@
 	</array>
 	<key>NoSyncAllAppVersions</key>
 	<array>
-		<string>3.3.7</string>
+		<string>3.3.9</string>
 		<string>3.3.8</string>
+		<string>3.3.11</string>
+		<string>3.3.7</string>
+		<string>3.3.12</string>
 	</array>
 	<key>NoSyncBFPRecents</key>
 	<array>
 		<string>Hack Nerd Font</string>
 		<string>Monaco</string>
 	</array>
+	<key>NoSyncFrame_SessionsPreferences</key>
+	<dict>
+		<key>screenFrame</key>
+		<string>{{-2560, -268}, {2560, 1440}}</string>
+		<key>topLeft</key>
+		<string>{-1583, 948}</string>
+	</dict>
 	<key>NoSyncFrame_SharedPreferences</key>
 	<dict>
 		<key>screenFrame</key>
 		<string>{{0, 0}, {1680, 1050}}</string>
 		<key>topLeft</key>
-		<string>{518, 840}</string>
+		<string>{266, 827}</string>
 	</dict>
 	<key>NoSyncInstallationId</key>
 	<string>464F04E2-647C-4682-A406-A5CD0950D4B1</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>8</integer>
+	<integer>21</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -1426,8 +1623,12 @@
 			</dict>
 		</array>
 	</dict>
+	<key>NoSyncSaveDocumentAsPathSet_saveDocumentAs:</key>
+	<true/>
 	<key>NoSyncTipOfTheDayEligibilityBeganTime</key>
 	<real>600020039.23832798</real>
+	<key>OpenBookmark</key>
+	<false/>
 	<key>PasteTabToStringTabStopSize</key>
 	<integer>4</integer>
 	<key>PointerActions</key>
@@ -1474,20 +1675,28 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2020-02-14T13:34:19Z</date>
+	<date>2020-09-24T11:45:35Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SUUpdateGroupIdentifier</key>
-	<integer>3094098335</integer>
+	<integer>2201062693</integer>
 	<key>SUUpdateRelaunchingMarker</key>
-	<true/>
+	<false/>
 	<key>SoundForEsc</key>
 	<false/>
+	<key>ToolbeltTools</key>
+	<array>
+		<string>Actions</string>
+	</array>
 	<key>VisualIndicatorForEsc</key>
 	<false/>
 	<key>findMode_iTerm</key>
 	<integer>0</integer>
 	<key>iTerm Version</key>
-	<string>3.3.8</string>
+	<string>3.3.12</string>
+	<key>kCPKSelectionViewPreferredModeKey</key>
+	<integer>0</integer>
+	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
+	<false/>
 </dict>
 </plist>
