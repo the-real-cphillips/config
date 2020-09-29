@@ -41,7 +41,7 @@ function viewfind(){
   curl -s -X POST \
     -H "x-api-key:$(aws ssm get-parameter --name /devops/viewfinder/api_key --with-decryption --output text --query 'Parameter.Value')" \
     https://b349k8t33g.execute-api.us-west-2.amazonaws.com/default/tags \
-    -d "{ \"repo\" : \"${REPO_NAME}\" }"
+    -d "{ \"repo\" : \"${REPO_NAME}\" }" | jq '.current_version'
 }
 
 ###############################

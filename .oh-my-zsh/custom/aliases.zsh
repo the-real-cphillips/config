@@ -34,3 +34,6 @@ alias atag='/Users/cphillips/work/repos/ops-tools/ansible-role-tags/latest_role_
 
 # Git
 alias g="/usr/bin/git"
+
+# Jenkins Testing
+alias jpv='~/work/repos/ops-tools/jenkins-pipeline-validator/validate.sh'
