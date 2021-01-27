@@ -1,8 +1,9 @@
 # Golang
-export GOPATH=$HOME/Go
-export GOROOT=/usr/local/opt/go/libexec
-export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:$GOROOT/bin
+export GOPATH="${HOME}/.go"
+export GOROOT="$(brew --prefix golang)/libexec"
+export GOBIN=$GOPATH/bin
+export GO2UPATH=$GOPATH/src/github.com/2uinc
+export PATH="$PATH:$GOPATH/bin:$GOROOT/bin"
 
 # Kubernetes Exports
 export KUBECONFIG=${HOME}/.kube/config
@@ -23,4 +24,3 @@ fi
 
 # Pager Shenanigans
 export AWS_PAGER=""
-

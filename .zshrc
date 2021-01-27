@@ -95,7 +95,7 @@ plugins=(ansible git virtualenv)
 
 ######## User configuration ##########
 #
-export PATH="/usr/local/opt/python/libexec/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/usr/local/opt/go/libexec/bin/go:/usr/local/sbin:${GOPATH}/workspace:${GOPATH}/bin:/usr/local/opt/openssl/bin:$PATH"
+export PATH="/usr/local/opt/python/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/usr/local/opt/go/libexec/bin/go:/usr/local/sbin:${GOPATH}/workspace:${GOPATH}/bin:/usr/local/opt/openssl/bin:$PATH"
 
 source $ZSH/oh-my-zsh.sh
 # source ~/.my_shell.sh
@@ -144,3 +144,6 @@ config='/usr/bin/git --git-dir=${HOME}/.cfg/ --work-tree=${HOME}'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+

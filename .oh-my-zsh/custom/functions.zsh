@@ -9,10 +9,9 @@ start-tmux() {
 ###################################
 ##### Miscellaneous Functions #####
 ###################################
-function login() {
-  2u-vpn c
-  sleep 5
-  /usr/local/bin/_login
+function weather() {
+  local LOCALITY=${1:-Waxhaw}
+  curl "wttr.in/${LOCALITY}"
 }
 
 function 2u-vpn() {
@@ -37,11 +36,36 @@ function 2u-vpn() {
 
 function viewfind(){
   local REPO_NAME=${1}
+  local CURRENT_VERSION=${2:-false}
 
-  curl -s -X POST \
-    -H "x-api-key:$(aws ssm get-parameter --name /devops/viewfinder/api_key --with-decryption --output text --query 'Parameter.Value')" \
-    https://b349k8t33g.execute-api.us-west-2.amazonaws.com/default/tags \
-    -d "{ \"repo\" : \"${REPO_NAME}\" }" | jq '.current_version'
+  if [[ "${CURRENT_VERSION}" == true ]]; then
+        curl -s -X POST \
+          -H "x-api-key:$(aws ssm get-parameter --name /devops/viewfinder/api_key --with-decryption --output text --query 'Parameter.Value')" \
+          https://b349k8t33g.execute-api.us-west-2.amazonaws.com/default/tags \
+          -d "{ \"repo\" : \"${REPO_NAME}\" }" | jq '.current_version'
+  else
+        curl -s -X POST \
+          -H "x-api-key:$(aws ssm get-parameter --name /devops/viewfinder/api_key --with-decryption --output text --query 'Parameter.Value')" \
+          https://b349k8t33g.execute-api.us-west-2.amazonaws.com/default/tags \
+          -d "{ \"repo\" : \"${REPO_NAME}\" }"
+  fi
+}
+
+function viewfinda(){
+  local REPO_NAME=ansible-role-${1}
+  local CURRENT_VERSION=${2:-true}
+
+  if [[ "${CURRENT_VERSION}" == true ]]; then
+        curl -s -X POST \
+          -H "x-api-key:$(aws ssm get-parameter --name /devops/viewfinder/api_key --with-decryption --output text --query 'Parameter.Value')" \
+          https://b349k8t33g.execute-api.us-west-2.amazonaws.com/default/tags \
+          -d "{ \"repo\" : \"${REPO_NAME}\" }" | jq '.current_version'
+  else
+        curl -s -X POST \
+          -H "x-api-key:$(aws ssm get-parameter --name /devops/viewfinder/api_key --with-decryption --output text --query 'Parameter.Value')" \
+          https://b349k8t33g.execute-api.us-west-2.amazonaws.com/default/tags \
+          -d "{ \"repo\" : \"${REPO_NAME}\" }"
+  fi
 }
 
 ###############################
