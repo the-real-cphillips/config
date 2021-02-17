@@ -37,7 +37,6 @@ alias atag='/Users/cphillips/work/repos/ops-tools/ansible-role-tags/latest_role_
 
 # Git
 alias g="/usr/bin/git"
-alias gpu="/usr/bin/git push -u origin"
 
 # Github CLI
 alias ghprc='/usr/local/bin/gh pr create'

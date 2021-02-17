@@ -9,6 +9,11 @@ start-tmux() {
 ###################################
 ##### Miscellaneous Functions #####
 ###################################
+function aws_key_print() {
+  local KEYFILE=${1}
+  openssl pkcs8 -in ${KEYFILE} -nocrypt -topk8 -outform DER | openssl sha1 -c
+}
+
 function weather() {
   local LOCALITY=${1:-Waxhaw}
   curl "wttr.in/${LOCALITY}"
@@ -96,6 +101,11 @@ function tfv(){
 ############################
 ##### Github Functions #####
 ############################
+#
+
+function gpu () {
+  /usr/bin/git push -u origin $(/usr/bin/git branch --show-current)
+}
 
 # 2U Specific Clone
 function gclone () { 
