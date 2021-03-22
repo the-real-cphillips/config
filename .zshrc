@@ -31,7 +31,7 @@ plugins=(
 
 
 # PATH
-export PATH="/usr/local/bin:/usr/bin:/usr/sbin:/sbin:/usr/local/sbin:${GOPATH}/workspace:${GOPATH}/bin:/usr/local/opt/openssl/bin:$PATH"
+export PATH="/usr/local/bin:/usr/bin:/usr/sbin:/sbin:/usr/local/sbin:${GOPATH}/workspace:${GOPATH}/bin:/usr/local/opt/openssl/bin:/Users/cphillips/work/repos/ops-tools/r53_lookup:$PATH"
 
 # Sourcing
 source ${ZSH}/oh-my-zsh.sh

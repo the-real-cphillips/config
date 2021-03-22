@@ -103,10 +103,6 @@ function tfv(){
 ############################
 #
 
-function gpu () {
-  /usr/bin/git push -u origin $(/usr/bin/git branch --show-current)
-}
-
 # 2U Specific Clone
 function gclone () { 
       git clone git@github.com:2uinc/$1
@@ -177,6 +173,11 @@ if [[ ${AWS_CLI_RET} -eq 0 ]]; then
       else
           aws acm list-certificates --region ${2:-us-west-2} | jq --arg search_string "$search_string" '.CertificateSummaryList[]|select(.DomainName | contains($search_string))';
       fi
+  }
+
+  aws-name-to-id () {
+    local search_string=${1}
+    aws ec2 describe-tags --filters "Name=tag:Name,Values=${search_string}" | jq -r '.Tags[] | select(.ResourceType=="instance") | .ResourceId'
   }
 fi
 

@@ -3,9 +3,10 @@ alias login="2u-vpn c && /usr/local/bin/_login"
 alias config="/usr/bin/git --git-dir=${HOME}/.cfg/ --work-tree=${HOME}"
 alias lower="python -c '\''import sys; string = sys.argv[1]; string.lower()'"
 alias sc="shellcheck"
-alias servethis="python -m http.server $1"
+alias servethis="python3 -m http.server $1"
 alias showhidden="defaults write com.apple.finder AppleShowAllFiles TRUE && killall Finder"
 alias ecr_login="aws ecr get-login --no-include-email --region us-west-2"
+alias asciicast2gif='docker run --rm -v $PWD:/data asciinema/asciicast2gif'
 
 # Virtualenvs
 alias ans="source ~/virtualenv/ansible/bin/activate"
@@ -18,6 +19,8 @@ alias dv3="source ~/virtualenv/default3/bin/activate"
 alias kc="kubectl"
 alias kube_login="~cphillips/k8s-login.py"
 
+# AWS
+alias asciicast2gif='docker run --rm -v $PWD:/data asciinema/asciicast2gif'
 
 # Terraform
 alias tf="/usr/local/bin/terraform"
@@ -43,4 +46,3 @@ alias ghprc='/usr/local/bin/gh pr create'
 
 # Jenkins Testing
 alias jpv='~/work/repos/ops-tools/jenkins-pipeline-validator/validate.sh'
-

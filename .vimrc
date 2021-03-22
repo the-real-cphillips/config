@@ -17,6 +17,8 @@ Plug 'avakhov/vim-yaml'
 Plug 'edkolev/promptline.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'aonemd/kuroi.vim'
+Plug 'RRethy/vim-illuminate'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 call plug#end()
 
 """" Plugin Configurations
@@ -44,6 +46,18 @@ set pastetoggle=<F3>
 set relativenumber
 set shiftwidth=2
 
+""""""""""""""""""""""""
+
+""" Illuminate
+augroup illuminate_augroup
+  autocmd!
+  autocmd VimEnter * hi illuminatedWord ctermbg=darkgrey ctermfg=white
+  autocmd VimEnter * hi illuminatedCurWord cterm=underline gui=underline
+augroup END
+
+map <Leader>f :IlluminationToggle!<CR>
+
+""""""""""""""""""""""""
 
 """ Color Stuff
 set t_Co=256
