@@ -1,7 +1,0 @@
-# OMZSH Stuff
-.oh-my-zsh/custom/cred-exports.zsh
-.oh-my-zsh/custom/example.zsh
-
-# OTHER
-.cfg
-.vim/.netrwhist
