@@ -39,12 +39,17 @@ filetype plugin indent on    " required
 syntax on
 set backspace=2
 set cursorline
-set expandtab
 set laststatus=2
 set number
 set pastetoggle=<F3>
 set relativenumber
-set shiftwidth=2
+
+set expandtab
+set nosmarttab
+set softtabstop=4
+set shiftwidth=4
+set tabstop=4
+set linebreak
 
 """"""""""""""""""""""""
 

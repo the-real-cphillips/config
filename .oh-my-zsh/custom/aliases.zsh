@@ -35,9 +35,6 @@ alias ml='molecule lint'
 alias mt='molecule test'
 alias mlog='molecule login'
 
-# Ansible
-alias atag='/Users/cphillips/work/repos/ops-tools/ansible-role-tags/latest_role_tags.py'
-
 # Git
 alias g="/usr/bin/git"
 
@@ -46,3 +43,9 @@ alias ghprc='/usr/local/bin/gh pr create'
 
 # Jenkins Testing
 alias jpv='~/work/repos/ops-tools/jenkins-pipeline-validator/validate.sh'
+
+# 2U Aliases
+#
+# Ansible
+alias atag='/Users/cphillips/work/repos/ops-tools/ansible-role-tags/latest_role_tags.py'
+alias ssmh='python3 /Users/cphillips/work/repos/ops-tools/ssm-session-finder/session_finder.py'
