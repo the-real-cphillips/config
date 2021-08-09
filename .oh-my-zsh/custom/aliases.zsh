@@ -19,8 +19,6 @@ alias dv3="source ~/virtualenv/default3/bin/activate"
 alias kc="kubectl"
 alias kube_login="~cphillips/k8s-login.py"
 
-# AWS
-alias asciicast2gif='docker run --rm -v $PWD:/data asciinema/asciicast2gif'
 
 # Terraform
 alias tf="/usr/local/bin/terraform"
@@ -34,6 +32,9 @@ alias mc='molecule converge'
 alias ml='molecule lint'
 alias mt='molecule test'
 alias mlog='molecule login'
+
+# Misc
+alias asciicast2gif='docker run --rm -v $PWD:/data asciinema/asciicast2gif'
 
 # Git
 alias g="/usr/bin/git"

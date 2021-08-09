@@ -21,16 +21,21 @@ function 2u-vpn() {
   local -r _vpn_net='2U Corp Network'
   case "$command" in
     's')
-      echo -e 'Checking current VPN status...\n'
+      echo -e "[I] Checking VPN Status...\n"
       eval "${_vpn_bin} -s status" ;;
     'c')
-      echo -e 'Connecting to VPN...\n'
-      _vpn_autoconnect ;;
+      echo -e "[I] Checking VPN Status...\n"
+      if [[ $(eval ${_vpn_bin} -s status | grep "state" | head -n1 | awk '{print $4}') == 'Disconnected' ]]; then 
+        echo -e '[I] Connecting to VPN...\n'
+        _vpn_autoconnect
+      else
+          echo -e "[√] VPN Already Connected\n"
+      fi;;
     'd')
-      echo -e 'Disconnecting from VPN...\n'
+      echo -e '[I] Disconnecting from VPN...\n'
       eval "${_vpn_bin} -s disconnect" ;;
     *)
-      echo "Invalid option '${command}' ([(s)tatus]|(c)onnect|(d)isconnect)"
+      echo "[X] Invalid option '${command}' ([(s)tatus]|(c)onnect|(d)isconnect)"
       return 1 ;;
   esac
 }
@@ -72,6 +77,13 @@ function viewfinda(){
 ###############################
 ##### Terraform Functions #####
 ###############################
+#
+function tfm(){
+    local INPUT=${1}
+    TFENV=$(which tfenv)
+    
+    $TFENV install ${INPUT:=min-required} && $TFENV use ${INPUT:=min-required}
+}
 
 function tfv(){
   local INPUT=${1}
@@ -163,6 +175,19 @@ if [[ ${AWS_CLI_RET} -eq 0 ]]; then
     local KEYFILE=${1}
     openssl pkcs8 -in ${KEYFILE} -nocrypt -topk8 -outform DER | openssl sha1 -c
   }
+
+  function aws_creds() {
+      local profile_name=${1}
+      if [[ -z "$profile_name" ]]; then
+          printf "NAME\tROLE_ARN\n" | expand -t 20
+          for name in $(aws configure list-profiles | sort | grep -v default);
+            do printf "${name}\t$(aws configure get role_arn --profile ${name})\n" | expand -t 20;
+          done
+      else
+          aws configure get role_arn --profile ${profile_name}
+      fi
+  }
+
 fi
 
 ##############################

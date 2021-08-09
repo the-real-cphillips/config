@@ -25,13 +25,14 @@ HIST_STAMPS="mm/dd/yyyy"
 # Plugins
 plugins=(
 	ansible
+    asdf
 	git
 	virtualenv
 	)
 
 
 # PATH
-export PATH="/usr/local/bin:/usr/bin:/usr/sbin:/sbin:/usr/local/sbin:${GOPATH}/workspace:${GOPATH}/bin:/usr/local/opt/openssl/bin:/Users/cphillips/work/repos/ops-tools/r53_lookup:$PATH"
+export PATH="/opt/homebrew/bin:/usr/local/bin:/usr/bin:/usr/sbin:/sbin:/usr/local/sbin:${GOPATH}/workspace:${GOPATH}/bin:/usr/local/opt/openssl/bin:/Users/cphillips/work/repos/ops-tools/r53_lookup:$PATH"
 
 # Sourcing
 source ${ZSH}/oh-my-zsh.sh

@@ -9,16 +9,16 @@ endif
 
 """ Calling used plugins
 call plug#begin()
-Plug 'puppetlabs/puppet-syntax-vim'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'hashivim/vim-terraform'
+Plug 'RRethy/vim-illuminate'
+Plug 'aonemd/kuroi.vim'
 Plug 'avakhov/vim-yaml'
 Plug 'edkolev/promptline.vim'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'aonemd/kuroi.vim'
-Plug 'RRethy/vim-illuminate'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'hashivim/vim-terraform'
+Plug 'puppetlabs/puppet-syntax-vim'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
 """" Plugin Configurations
