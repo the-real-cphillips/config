@@ -2,8 +2,53 @@
 ############################### Custom Functions ###############################
 ################################################################################
 
-start-tmux() {
+function color_echo() {
+    local INPUT=${2}
+    local COLOR=${1}
+
+    declare -A colors
+    colors=(
+        ['light-blue']='\033[1;34m'
+        ['green']='\033[0;32m'
+        ['yellow']='\033[1;33m'
+        ['red']='\033[0;31m'
+    )
+
+    echo -e "${colors[$COLOR]}"
+    echo -e "$INPUT"
+    tput sgr0
+}
+
+function start-tmux() {
   ~/tmux-start.sh
+}
+
+###################################
+########       ASDF       #########
+###################################
+
+function asdfm() {
+    local ACTION=${1:-list}
+    local PKG=${2}
+    local VER=${3:-latest}
+
+    case "${ACTION}" in
+        'list')
+            asdf list ${PKG}
+            ;;
+        'install')
+            color_echo 'light-blue' "[I] Installing ${VER} of ${PKG}"
+            asdf install ${PKG} ${VER}
+            if [ $? -eq 0 ]; then
+                color_echo 'green' "[√] Success: installed ${VER} of ${PKG}";
+            else
+                color_echo 'red' "[X] Error: Install of ${PKG} Failed"
+            fi
+            ;;
+        *)
+            color_echo 'red' "[X] Invalid Option: ${PKG}\nValid Options: list, install"
+            ;;
+    esac
 }
 
 ###################################
@@ -16,26 +61,31 @@ function weather() {
 }
 
 function 2u-vpn() {
+  local LB='\033[1;34m'
+  local G='\033[0;32m'
+  local R='\033[0;31m'
+  local Y='\033[1;33m'
+  local NC='\033[0m'
   local command="${1:-s}"
   local -r _vpn_bin='/opt/cisco/anyconnect/bin/vpn'
   local -r _vpn_net='2U Corp Network'
   case "$command" in
     's')
-      echo -e "[I] Checking VPN Status...\n"
+      echo -e "${Y}[I] Checking VPN Status...${NC}\n"
       eval "${_vpn_bin} -s status" ;;
     'c')
-      echo -e "[I] Checking VPN Status...\n"
+      echo -e "${Y}[I] Checking VPN Status...${NC}\n"
       if [[ $(eval ${_vpn_bin} -s status | grep "state" | head -n1 | awk '{print $4}') == 'Disconnected' ]]; then 
-        echo -e '[I] Connecting to VPN...\n'
+        echo -e "${G}[I] Connecting to VPN...${NC}\n"
         _vpn_autoconnect
       else
-          echo -e "[√] VPN Already Connected\n"
+          echo -e "${G}[√] VPN Already Connected${NC}\n"
       fi;;
     'd')
-      echo -e '[I] Disconnecting from VPN...\n'
+      echo -e "${LB}[I] Disconnecting from VPN...${NC}\n"
       eval "${_vpn_bin} -s disconnect" ;;
     *)
-      echo "[X] Invalid option '${command}' ([(s)tatus]|(c)onnect|(d)isconnect)"
+      echo "${R}[X] Invalid option '${command}' ([(s)tatus]|(c)onnect|(d)isconnect){$NC}"
       return 1 ;;
   esac
 }
