@@ -1,3 +1,3 @@
 # Config
 
-[Wiki](https://github.com/the-real-cphillips/config.wiki.git)
+[Wiki](https://github.com/the-real-cphillips/config/wiki)
