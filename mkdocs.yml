@@ -1,0 +1,12 @@
+---
+
+site_name: My Docs
+
+nav:
+  - About: README.md
+
+theme:
+  name: readthedocs
+  highlightjs: true
+  hljs_languages:
+    - yaml
