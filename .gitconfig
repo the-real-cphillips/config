@@ -11,6 +11,7 @@
     l = log
     p = pull
     rename = "!git branch -m $1 $2 && git push origin :$1 $2 -u #"
+    delete-tag = "!git tag -d $1 && git push :refs/tags/$i"
     sh = show
     st = status
 [core]

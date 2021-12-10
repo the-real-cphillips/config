@@ -39,6 +39,9 @@ function asdfm() {
         'install')
             color_echo 'light-blue' "[I] Installing ${VER} of ${PKG}"
             asdf install ${PKG} ${VER}
+            asdf global ${PKG} ${VER}
+            asdf shell ${PKG} ${VER}
+            asdf local ${PKG} ${VER}
             if [ $? -eq 0 ]; then
                 color_echo 'green' "[√] Success: installed ${VER} of ${PKG}";
             else
