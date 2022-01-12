@@ -1,4 +1,4 @@
 #!/bin/bash
 
 # Starting TMUX
-$(which tmux) attach -t main || tmux new -s main
+$(which tmux) attach -t main || $(which tmux) new -s main

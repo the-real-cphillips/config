@@ -40,6 +40,8 @@ alias gob="go build"
 
 # Git
 alias g="/usr/bin/git"
+alias gmd="$(which gh) pr merge -r -d && /usr/bin/git up"
+alias gsoft="/usr/bin/git reset --soft"
 
 # Github CLI
 alias ghprc='$(which gh) pr create'
