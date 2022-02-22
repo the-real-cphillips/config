@@ -1,2 +1,12 @@
-*.swp
+# OMZ
+!.oh-my-zsh/custom/aliases.zsh
+!.oh-my-zsh/custom/functions.zsh
+
+# ASDF
+.tool-versions
+
+# OTHER
+.cfg
+.vim/.netrwhist
 *.DS_Store
+*.swp

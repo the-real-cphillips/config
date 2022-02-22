@@ -8,3 +8,5 @@
 # OTHER
 .cfg
 .vim/.netrwhist
+*.DS_Store
+*.swp
