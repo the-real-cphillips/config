@@ -58,6 +58,8 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 if [ -e /Users/cphillips/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/cphillips/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
+export OL_MFA=0
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+

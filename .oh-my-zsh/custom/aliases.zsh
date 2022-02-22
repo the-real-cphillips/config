@@ -1,3 +1,6 @@
+# AWS
+
+alias eks_nodes='~/personal/python-snippets/list_instances.py'
 # Misc
 alias login="2u-vpn c && /usr/local/bin/_login"
 alias config="/usr/bin/git --git-dir=${HOME}/.cfg/ --work-tree=${HOME}"
@@ -45,6 +48,8 @@ alias gsoft="/usr/bin/git reset --soft"
 
 # Github CLI
 alias ghprc='$(which gh) pr create'
+alias ghprm='$(which gh) pr merge -rd'
+alias prm=echo "$(which gh pr create --fill)"
 
 # Jenkins Testing
 alias jpv='~/work/repos/ops-tools/jenkins-pipeline-validator/validate.sh'

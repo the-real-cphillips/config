@@ -38,6 +38,7 @@ function asdfm() {
             ;;
         'install')
             color_echo 'light-blue' "[I] Installing ${VER} of ${PKG}"
+            asdf plugin add ${PKG}
             asdf install ${PKG} ${VER}
             asdf global ${PKG} ${VER}
             asdf shell ${PKG} ${VER}
@@ -57,6 +58,26 @@ function asdfm() {
 ###################################
 ##### Miscellaneous Functions #####
 ###################################
+
+function send_pr() {
+    local WEBHOOK=$(aws secretsmanager get-secret-value --secret-id devops/pull_request/webhook --query 'SecretString' --output text)
+    #local WEBHOOK='https://hooks.slack.com/workflows/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'
+    local PR_URL=${1}
+    local MSG=${2:-Please Review}
+    
+    if http -q --check-status --ignore-stdin --timeout=2.5 POST "${WEBHOOK}" pr_url="${PR_URL}" msg="${MSG}" &> /dev/null; then
+        echo '[✓] Sent OK!'
+    else
+        case $? in
+            2) echo '[✗] Request timed out!' ;;
+            3) echo '[✗] Unexpected HTTP 3xx Redirection!' ;;
+            4) echo '[✗] HTTP 4xx Client Error!' ;;
+            5) echo '[✗] HTTP 5xx Server Error!' ;;
+            6) echo '[✗] Exceeded --max-redirects=<n> redirects!' ;;
+            *) echo '[✗] Other Error!' ;;
+        esac
+    fi
+}
 
 function weather() {
   local LOCALITY=${1:-Waxhaw}

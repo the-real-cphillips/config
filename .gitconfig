@@ -17,7 +17,7 @@
 [core]
     pager = less -iR
     editor = /usr/bin/vim
-	excludesfile = /Users/cphillips/.gitignore_global
+	excludesfile = /Users/cphillips/.gitignore
 [color]
     ui = true
 [push]
