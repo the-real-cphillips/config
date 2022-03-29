@@ -61,7 +61,6 @@ function asdfm() {
 
 function send_pr() {
     local WEBHOOK=$(aws secretsmanager get-secret-value --secret-id devops/pull_request/webhook --query 'SecretString' --output text)
-    #local WEBHOOK='https://hooks.slack.com/workflows/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'
     local PR_URL=${1}
     local MSG=${2:-Please Review}
     

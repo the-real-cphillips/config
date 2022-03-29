@@ -1,19 +1,21 @@
 # AWS
 
 alias eks_nodes='~/personal/python-snippets/list_instances.py'
+
 # Misc
-alias login="2u-vpn c && /usr/local/bin/_login"
+
+alias a2g="/opt/homebrew/bin/asciicast2gif"
+alias c7n='$(which custodian)'
+alias cdm='cd $GO2UPATH/mole'
 alias config="/usr/bin/git --git-dir=${HOME}/.cfg/ --work-tree=${HOME}"
+alias ecr_login="aws ecr get-login --no-include-email --region us-west-2"
+alias login="2u-vpn c && /usr/local/bin/_login"
 alias lower="python -c '\''import sys; string = sys.argv[1]; string.lower()'"
+alias motivate="open $(http -j get https://inspirobot.me/api\?generate\=true --body)"
 alias sc="shellcheck"
 alias servethis="python3 -m http.server $1"
 alias showhidden="defaults write com.apple.finder AppleShowAllFiles TRUE && killall Finder"
-alias ecr_login="aws ecr get-login --no-include-email --region us-west-2"
 alias tmat="tmux attach -t gif || tmux new -s gif"
-#alias asciicast2gif='docker run --rm -v $PWD:/data asciinema/asciicast2gif'
-alias a2g="/opt/homebrew/bin/asciicast2gif"
-alias cdm='cd $GO2UPATH/mole'
-alias c7n='$(which custodian)'
 
 # Virtualenvs
 alias ans="source ~/virtualenv/ansible/bin/activate"
