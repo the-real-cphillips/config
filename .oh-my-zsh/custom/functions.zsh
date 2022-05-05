@@ -58,6 +58,11 @@ function asdfm() {
 ###################################
 ##### Miscellaneous Functions #####
 ###################################
+#
+
+function motivate() {
+    open $(http -j get https://inspirobot.me/api\?generate\=true --body)
+}
 
 function send_pr() {
     local WEBHOOK=$(aws secretsmanager get-secret-value --secret-id devops/pull_request/webhook --query 'SecretString' --output text)
@@ -209,6 +214,12 @@ function open_repo()
     echo 'Not inside git repository' 1>&2
     return 1
   fi
+}
+
+function gpt() {
+    local INPUT=${1}
+    git tag -d ${INPUT}
+    git push origin ":refs/tags/${INPUT}"
 }
 
 ##############################
