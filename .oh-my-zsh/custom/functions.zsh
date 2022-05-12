@@ -61,7 +61,11 @@ function asdfm() {
 #
 
 function motivate() {
-    open $(http -j get https://inspirobot.me/api\?generate\=true --body)
+    local COUNT=${1:-1}
+
+    for ((i=1; i<=COUNT; i++)); do
+        open "$(http -j get https://inspirobot.me/api\?generate=true --body)";
+    done
 }
 
 function send_pr() {
