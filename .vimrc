@@ -76,3 +76,6 @@ nnoremap <Leader>j :set foldmethod=syntax<CR>
 
 "Remove all trailing whitespace by pressing F6
 nnoremap <F6> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
+
+""" Alias
+:command Tfmt TerraformFmt

@@ -32,3 +32,7 @@
 	branch = false
 [init]
 	defaultBranch = main
+
+[url "ssh://git@github.com/"]
+        insteadOf = https://github.com/
+        insteadOf = https://www.github.com/
