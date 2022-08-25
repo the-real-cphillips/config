@@ -88,7 +88,7 @@ function send_pr() {
 }
 
 function weather() {
-  local LOCALITY=${1:-Waxhaw}
+  local LOCALITY=${1:-Sandy_Hook,CT}
   curl "wttr.in/${LOCALITY}"
 }
 

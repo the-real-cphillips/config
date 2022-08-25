@@ -2,13 +2,15 @@
 export GOPATH="${HOME}/.go"
 export GOROOT="$(brew --prefix golang)/libexec"
 export GOBIN=$GOPATH/bin
-export GO2UPATH=$GOPATH/src/github.com/2uinc
 export PATH="$PATH:$GOPATH/bin:$GOROOT/bin"
 
 # Kubernetes Exports
 export KUBECONFIG=${HOME}/.kube/config
 export KUBERNETES_PROVIDER=aws
 export KUBE_EDITOR="vim"
+
+# Gcloud
+export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 
 # Ansible Exports
 export ANSIBLE_INVENTORY=${HOME}/.ansible/aws_ec2.yml

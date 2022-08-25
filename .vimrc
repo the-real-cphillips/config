@@ -19,7 +19,7 @@ Plug 'puppetlabs/puppet-syntax-vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'wakatime/vim-wakatime'
+""" Plug 'wakatime/vim-wakatime'
 call plug#end()
 
 """" Plugin Configurations

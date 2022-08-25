@@ -16,13 +16,16 @@ export ZSH_THEME="powerlevel10k/powerlevel10k"
 
 if [[ $(uname) == 'Darwin' ]]; then
   eval "$(ssh-agent -s)"
-  ssh-add -K ${HOME}/.ssh/id_rsa
+  ssh-add  --apple-use-keychain ${HOME}/.ssh/id_rsa
 fi
 
 # Config Settings
 CASE_SENSITIVE="true"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 HIST_STAMPS="mm/dd/yyyy"
+
+# ASDF
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
 
 # Plugins
 plugins=(
@@ -34,7 +37,7 @@ plugins=(
 
 
 # PATH
-export PATH="/opt/homebrew/bin:/usr/local/bin:/usr/bin:/usr/sbin:/sbin:/usr/local/sbin:${GOPATH}/workspace:${GOPATH}/bin:/usr/local/opt/openssl/bin:/Users/cphillips/work/repos/ops-tools/r53_lookup:$PATH"
+export PATH="/opt/homebrew/bin:/usr/local/bin:/usr/bin:/usr/sbin:/sbin:/usr/local/sbin:${GOPATH}/workspace:${GOPATH}/bin:/usr/local/opt/openssl/bin:$PATH"
 
 # Sourcing
 source ${ZSH}/oh-my-zsh.sh
@@ -58,10 +61,16 @@ config='/usr/bin/git --git-dir=${HOME}/.cfg/ --work-tree=${HOME}'
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 
-if [ -e /Users/cphillips/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/cphillips/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+if [ -e ${HOME}/.nix-profile/etc/profile.d/nix.sh ]; then . ${HOME}/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
 export OL_MFA=0
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/user85520017/tmp/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/user85520017/tmp/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/user85520017/tmp/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/user85520017/tmp/google-cloud-sdk/completion.zsh.inc'; fi
