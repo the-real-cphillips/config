@@ -19,11 +19,13 @@ call plug#begin()
   " https://github.com/nvim-lualine/lualine.nvim#default-configuration
   Plug 'nvim-lualine/lualine.nvim'
   Plug 'kyazdani42/nvim-web-devicons'
+  Plug 'kyazdani42/nvim-tree.lua'
 call plug#end()
 
 """ Require plugin configs
 " lua require('namespace.plugin')
 lua require('the-real-cphillips.lualine')
+lua require('the-real-cphillips.nerd-tree')
 
 """ Plugin Configurations
 
@@ -77,11 +79,14 @@ set background=dark
 colorscheme nightfox
 
 hi CursorColumn cterm=NONE ctermbg=darkgrey ctermfg=red guibg=darkgrey guifg=darkred
+
 nnoremap <Leader>c :set cursorcolumn!<CR>
 nnoremap <Leader>j :set foldmethod=syntax<CR>
+nnoremap <Leader>f :NvimTreeToggle .<CR>
 
 """ Remove all trailing whitespace by pressing F6
 nnoremap <F6> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 
 """ Alias
 :command Tfmt TerraformFmt
+
