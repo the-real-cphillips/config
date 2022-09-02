@@ -27,10 +27,10 @@ alias kube_login="~cphillips/k8s-login.py"
 
 
 # Terraform
-alias tf="/usr/local/bin/terraform"
-alias tfp="/usr/local/bin/terraform plan"
-alias tfw="/usr/local/bin/terraform workspace"
-alias tfws="/usr/local/bin/terraform workspace select"
+alias tf="${_TF_BINARY}"
+alias tfp="${_TF_BINARY} plan"
+alias tfw="${_TF_BINARY} workspace"
+alias tfws="${_TF_BINARY} workspace select"
 
 # Molecule aliases
 alias m='molecule'

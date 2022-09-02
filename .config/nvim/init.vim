@@ -1,29 +1,36 @@
-"""""""""""""""""""""""""""
+""""""""""""""""""""""""""
 """" Setting up Plug
 """ Auto install of plug
-if empty(glob('~/.vim/autoload/plug.vim'))
-    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-      autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
+"""if empty(glob('~/.vim/autoload/plug.vim'))
+"""    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+"""        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+"""      autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+"""endif
 
 """ Calling used plugins
 call plug#begin()
-Plug 'RRethy/vim-illuminate'
-Plug 'avakhov/vim-yaml'
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'hashivim/vim-terraform'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+  Plug 'EdenEast/nightfox.nvim', { 'tag': 'v1.0.0' }
+  Plug 'APZelos/blamer.nvim'
+  Plug 'RRethy/vim-illuminate'
+  Plug 'avakhov/vim-yaml'
+  Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+  Plug 'hashivim/vim-terraform'
+  Plug 'terryma/vim-multiple-cursors'
+  " https://github.com/nvim-lualine/lualine.nvim#default-configuration
+  Plug 'nvim-lualine/lualine.nvim'
+  Plug 'kyazdani42/nvim-web-devicons'
 call plug#end()
 
-"""" Plugin Configurations
+""" Require plugin configs
+" lua require('namespace.plugin')
+lua require('the-real-cphillips.lualine')
 
-""" Airline/Powerline
-let g:airline_powerline_fonts = 1
-let g:airline_theme = 'ravenpower'
-let g:Powerline_symbols = 'fancy'
+""" Plugin Configurations
+
+""" Blamer (Git Blame)
+let g:blamer_date_format='%m/%d/%y'
+let g:blamer_enabled=1
+let g:blamer_delay=500
 
 """ Terraform plugin
 let g:terraform_align=1
@@ -39,7 +46,6 @@ syntax enable
 set number
 set relativenumber
 
-set softtabstop=4
 set shiftwidth=2
 set tabstop=2
 set smartindent
@@ -68,7 +74,7 @@ map <Leader>f :IlluminationToggle!<CR>
 """" Color Stuff
 set termguicolors
 set background=dark
-colorscheme nordfox
+colorscheme nightfox
 
 hi CursorColumn cterm=NONE ctermbg=darkgrey ctermfg=red guibg=darkgrey guifg=darkred
 nnoremap <Leader>c :set cursorcolumn!<CR>

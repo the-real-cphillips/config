@@ -189,29 +189,32 @@ function tfv(){
 }
 
 ############################
-##### Github Functions #####
+##### Git Functions #####
 ############################
 #
 
-# 2U Specific Clone
-function gclone () { 
-      git clone git@github.com:2uinc/$1
+# ghorg clone group
+function gl_group_clone() {
+    local GROUP=$1
+    ghorg clone ${GROUP} \
+        --protocol=ssh \
+        --base-url=https://gitlab.s.fpint.net \
+        --scm=gitlab \
+        --token=${GHORG_GITLAB_TOKEN} \
+        --path=${HOME}/work/repos \
+        --skip-archived \
+        --skip-forks \
+        --quiet
 }
 
-
-# Find? Untested
-function github-find {
-  curl -s -u $GITHUB_USERNAME:"$GITHUB_TOKEN" https://api.github.com/search/code\?q\=$1+in:file+org:$GITHUB_ORG | jq '.items | .[].html_url'
-}
-
-# Open Current Repo (MAC ONLY)
+# Open Current Repo (MAC ONLY) (LOCAL GITLAB B/C FLASHPOINT)
 function open_repo()
 {
   if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
     local url
     url=$(git config --get remote.origin.url \
       | sed -e "s/git@/https:\/\//g" \
-      | sed -e "s/com:/com\//"
+      | sed -e "s/net:/net\//g"
     )
     open "$url"
   else
