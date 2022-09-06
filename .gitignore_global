@@ -3,7 +3,7 @@
 !.oh-my-zsh/custom/functions.zsh
 
 # ASDF
-.tool-versions
+*.tool-versions*
 
 # OTHER
 .cfg

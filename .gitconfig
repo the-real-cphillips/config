@@ -16,8 +16,8 @@
     st = status
 [core]
     pager = less -iR
-    editor = /usr/bin/vim
-	excludesfile = /Users/cphillips/.gitignore_global
+    editor = /usr/local/bin/nvim
+	  excludesfile = ~/.gitignore_global
 [color]
     ui = true
 [push]
