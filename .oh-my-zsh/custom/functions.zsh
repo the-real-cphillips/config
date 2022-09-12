@@ -60,6 +60,17 @@ function asdfm() {
 ###################################
 #
 
+function json_to_yaml() {
+  local FILENAME=${1}
+
+  MASSAGED_FILENAME="$(echo ${FILENAME} | sed -e 's/.json//g')"
+
+  echo "---" > ${MASSAGED_FILENAME}.yml
+  $(which python3) -c 'import sys, yaml, json; print(yaml.dump(json.loads(sys.stdin.read())))' < ${MASSAGED_FILENAME}.json >> ${MASSAGED_FILENAME}.yml
+  truncate -s -1 ${MASSAGED_FILENAME}.yml
+
+}
+
 function motivate() {
     local COUNT=${1:-1}
 

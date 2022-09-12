@@ -1,5 +1,4 @@
 # AWS
-
 alias eks_nodes='~/personal/python-snippets/list_instances.py'
 
 # Misc
@@ -15,6 +14,8 @@ alias sc="shellcheck"
 alias servethis="python3 -m http.server $1"
 alias showhidden="defaults write com.apple.finder AppleShowAllFiles TRUE && killall Finder"
 alias tmat="tmux attach -t gif || tmux new -s gif"
+alias opl="op signin"
+alias yl="/opt/homebrew/bin/yamllint"
 
 # Virtualenvs
 alias ans="source ~/virtualenv/ansible/bin/activate"
@@ -27,10 +28,11 @@ alias kube_login="~cphillips/k8s-login.py"
 
 
 # Terraform
-alias tf="${_TF_BINARY}"
-alias tfp="${_TF_BINARY} plan"
-alias tfw="${_TF_BINARY} workspace"
-alias tfws="${_TF_BINARY} workspace select"
+alias tf="/opt/homebrew/bin/terraform"
+alias tfi="/opt/homebrew/bin/terraform import"
+alias tfp="/opt/homebrew/bin/terraform plan"
+alias tfw="/opt/homebrew/bin/terraform workspace"
+alias tfws="/opt/homebrew/bin/terraform workspace select"
 
 # Molecule aliases
 alias m='molecule'
@@ -60,5 +62,3 @@ alias jpv='~/work/repos/ops-tools/jenkins-pipeline-validator/validate.sh'
 # Ansible
 alias atag='/Users/cphillips/work/repos/ops-tools/ansible-role-tags/latest_role_tags.py'
 alias ssmh='python3 /Users/cphillips/work/repos/ops-tools/ssm-session-finder/session_finder.py'
-
-
