@@ -43,6 +43,11 @@ export PATH="/opt/homebrew/bin:/usr/local/bin:/usr/bin:/usr/sbin:/sbin:/usr/loca
 source ${ZSH}/oh-my-zsh.sh
 source <(kubectl completion zsh)
 
+eval "$(op completion zsh)"; compdef _op op
+
+eval "$(thefuck --alias)"
+
+
 [[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
@@ -56,7 +61,6 @@ fi
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/vault vault
-eval $(thefuck --alias)
 config='/usr/bin/git --git-dir=${HOME}/.cfg/ --work-tree=${HOME}'
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
