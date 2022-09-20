@@ -23,6 +23,7 @@ fi
 CASE_SENSITIVE="true"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 HIST_STAMPS="mm/dd/yyyy"
+PROMPT_EOL_MARK=''
 
 # ASDF
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
@@ -42,9 +43,7 @@ export PATH="/opt/homebrew/bin:/usr/local/bin:/usr/bin:/usr/sbin:/sbin:/usr/loca
 # Sourcing
 source ${ZSH}/oh-my-zsh.sh
 source <(kubectl completion zsh)
-
 eval "$(op completion zsh)"; compdef _op op
-
 eval "$(thefuck --alias)"
 
 
@@ -60,7 +59,6 @@ if type brew &>/dev/null; then
 fi
 
 autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /usr/local/bin/vault vault
 config='/usr/bin/git --git-dir=${HOME}/.cfg/ --work-tree=${HOME}'
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
@@ -78,3 +76,4 @@ if [ -f '/Users/user85520017/tmp/google-cloud-sdk/path.zsh.inc' ]; then . '/User
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/user85520017/tmp/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/user85520017/tmp/google-cloud-sdk/completion.zsh.inc'; fi
+

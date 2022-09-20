@@ -10,7 +10,7 @@ export KUBERNETES_PROVIDER=aws
 export KUBE_EDITOR="vim"
 
 # Gcloud
-export USE_GKE_GCLOUD_AUTH_PLUGIN=True
+export USE_GKE_GCLOUD_AUTH_PLUGIN=False
 
 # Ansible Exports
 export ANSIBLE_INVENTORY=${HOME}/.ansible/aws_ec2.yml

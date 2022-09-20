@@ -2,22 +2,18 @@
 ############################### Custom Functions ###############################
 ################################################################################
 
-function color_echo() {
-    local INPUT=${2}
-    local COLOR=${1}
-
-    declare -A colors
-    colors=(
-        ['light-blue']='\033[1;34m'
-        ['green']='\033[0;32m'
-        ['yellow']='\033[1;33m'
-        ['red']='\033[0;31m'
-    )
-
-    echo -e "${colors[$COLOR]}"
-    echo -e "$INPUT"
-    tput sgr0
-}
+###################################
+########    COLOR VARS    #########
+###################################
+LIGHT_BLUE='\033[1;34m'
+LB='\033[1;34m'
+GREEN='\033[0;32m'
+G='\033[0;32m'
+YELLOW='\033[1;33m'
+Y='\033[1;33m'
+RED='\033[0;31m'
+R='\033[0;31m'
+NC='\033[0m'
 
 function start-tmux() {
   ~/tmux-start.sh
@@ -37,20 +33,20 @@ function asdfm() {
             asdf list ${PKG}
             ;;
         'install')
-            color_echo 'light-blue' "[I] Installing ${VER} of ${PKG}"
+            printf "\n${LIGHT_BLUE}[I] Installing ${VER} of ${PKG}\n${NC}"
             asdf plugin add ${PKG}
             asdf install ${PKG} ${VER}
             asdf global ${PKG} ${VER}
             asdf shell ${PKG} ${VER}
             asdf local ${PKG} ${VER}
             if [ $? -eq 0 ]; then
-                color_echo 'green' "[√] Success: installed ${VER} of ${PKG}";
+                printf "${GREEN}[√] Success: installed ${VER} of ${PKG}\n${NC}";
             else
-                color_echo 'red' "[X] Error: Install of ${PKG} Failed"
+                printf "${RED}[X] Error: Install of ${PKG} Failed\n${NC}"
             fi
             ;;
         *)
-            color_echo 'red' "[X] Invalid Option: ${PKG}\nValid Options: list, install"
+            printf "${RED}[X] Invalid Option: ${PKG}\nValid Options: list, install\n${NC}"
             ;;
     esac
 }
@@ -79,124 +75,20 @@ function motivate() {
     done
 }
 
-function send_pr() {
-    local WEBHOOK=$(aws secretsmanager get-secret-value --secret-id devops/pull_request/webhook --query 'SecretString' --output text)
-    local PR_URL=${1}
-    local MSG=${2:-Please Review}
-    
-    if http -q --check-status --ignore-stdin --timeout=2.5 POST "${WEBHOOK}" pr_url="${PR_URL}" msg="${MSG}" &> /dev/null; then
-        echo '[✓] Sent OK!'
-    else
-        case $? in
-            2) echo '[✗] Request timed out!' ;;
-            3) echo '[✗] Unexpected HTTP 3xx Redirection!' ;;
-            4) echo '[✗] HTTP 4xx Client Error!' ;;
-            5) echo '[✗] HTTP 5xx Server Error!' ;;
-            6) echo '[✗] Exceeded --max-redirects=<n> redirects!' ;;
-            *) echo '[✗] Other Error!' ;;
-        esac
-    fi
-}
-
 function weather() {
   local LOCALITY=${1:-Sandy_Hook,CT}
   curl "wttr.in/${LOCALITY}"
 }
 
-function 2u-vpn() {
-  local LB='\033[1;34m'
-  local G='\033[0;32m'
-  local R='\033[0;31m'
-  local Y='\033[1;33m'
-  local NC='\033[0m'
-  local command="${1:-s}"
-  local -r _vpn_bin='/opt/cisco/anyconnect/bin/vpn'
-  local -r _vpn_net='2U Corp Network'
-  case "$command" in
-    's')
-      echo -e "${Y}[I] Checking VPN Status...${NC}\n"
-      eval "${_vpn_bin} -s status" ;;
-    'c')
-      echo -e "${Y}[I] Checking VPN Status...${NC}\n"
-      if [[ $(eval ${_vpn_bin} -s status | grep "state" | head -n1 | awk '{print $4}') == 'Disconnected' ]]; then 
-        echo -e "${G}[I] Connecting to VPN...${NC}\n"
-        _vpn_autoconnect
-      else
-          echo -e "${G}[√] VPN Already Connected${NC}\n"
-      fi;;
-    'd')
-      echo -e "${LB}[I] Disconnecting from VPN...${NC}\n"
-      eval "${_vpn_bin} -s disconnect" ;;
-    *)
-      echo "${R}[X] Invalid option '${command}' ([(s)tatus]|(c)onnect|(d)isconnect){$NC}"
-      return 1 ;;
-  esac
-}
-
-function viewfind(){
-  local REPO_NAME=${1}
-  local CURRENT_VERSION=${2:-false}
-
-  if [[ "${CURRENT_VERSION}" == true ]]; then
-        curl -s -X POST \
-          -H "x-api-key:$(aws ssm get-parameter --name /devops/viewfinder/api_key --with-decryption --output text --query 'Parameter.Value')" \
-          https://b349k8t33g.execute-api.us-west-2.amazonaws.com/default/tags \
-          -d "{ \"repo\" : \"${REPO_NAME}\" }" | jq '.current_version'
-  else
-        curl -s -X POST \
-          -H "x-api-key:$(aws ssm get-parameter --name /devops/viewfinder/api_key --with-decryption --output text --query 'Parameter.Value')" \
-          https://b349k8t33g.execute-api.us-west-2.amazonaws.com/default/tags \
-          -d "{ \"repo\" : \"${REPO_NAME}\" }"
-  fi
-}
-
-function viewfinda(){
-  local REPO_NAME=ansible-role-${1}
-  local CURRENT_VERSION=${2:-true}
-
-  if [[ "${CURRENT_VERSION}" == true ]]; then
-        curl -s -X POST \
-          -H "x-api-key:$(aws ssm get-parameter --name /devops/viewfinder/api_key --with-decryption --output text --query 'Parameter.Value')" \
-          https://b349k8t33g.execute-api.us-west-2.amazonaws.com/default/tags \
-          -d "{ \"repo\" : \"${REPO_NAME}\" }" | jq '.current_version'
-  else
-        curl -s -X POST \
-          -H "x-api-key:$(aws ssm get-parameter --name /devops/viewfinder/api_key --with-decryption --output text --query 'Parameter.Value')" \
-          https://b349k8t33g.execute-api.us-west-2.amazonaws.com/default/tags \
-          -d "{ \"repo\" : \"${REPO_NAME}\" }"
-  fi
-}
-
 ###############################
 ##### Terraform Functions #####
 ###############################
-#
+
 function tfm(){
     local INPUT=${1}
     TFENV=$(which tfenv)
     
     $TFENV install ${INPUT:=min-required} && $TFENV use ${INPUT:=min-required}
-}
-
-function tfv(){
-  local INPUT=${1}
-  local version=${2}
-
-  case ${INPUT} in 
-    get) echo "Downloading Version: ${version}"
-         curl -o /tmp/terraform.zip  https://releases.hashicorp.com/terraform/${version}/terraform_${version}_darwin_amd64.zip
-         unzip /tmp/terraform -d /tmp/terraform 
-         chmod +x /tmp/terraform/terraform
-         mv /tmp/terraform/terraform /usr/local/bin/terraform_${version}
-         rm -rf /tmp/terraform*
-         tfv set ${version}
-      ;;
-    set) echo "Setting Version: $version"
-         ln -f -s /usr/local/bin/terraform_${version} /usr/local/bin/terraform
-         echo "\e[32m[√]\e[0m \e[33mChanged Terraform Version to:\e[0m \e[32m$(tf version | head -n1 | awk '{ print $2}')\e[1m"
-      ;;
-    *)  echo "\e[33m[I] Current Terraform Version:\e[0m \e[32m$(tf version | head -n1 | awk '{ print $2}')\e[1m" 
-  esac
 }
 
 ############################
@@ -239,6 +131,41 @@ function gpt() {
     git tag -d ${INPUT}
     git push origin ":refs/tags/${INPUT}"
 }
+
+##############################
+##### GCP CLI Functions ######
+##############################
+
+which gcloud > /dev/null 2>&1
+GCP_CLI_RET=$?
+if [[ ${GCP_CLI_RET} -eq 0 ]]; then
+
+  function gcp_switch() {
+    local INPUT=${1:-list}
+    case "${INPUT}" in
+    'list')
+      CURRENT_PROJECT=$(gcloud config get project)
+      echo "GCP Project IDs"
+      echo "Active Project: ${GREEN}${CURRENT_PROJECT}${NC}"
+      echo "========================="
+      while read project_name
+      do
+        if [[ ${project_name} == ${CURRENT_PROJECT} ]] ; then
+          printf "${GREEN}${project_name}${NC}\n"
+        else
+          printf "${project_name}\n"
+        fi
+      done < <(gcloud projects list | egrep '^flp|^fp' | awk '{ print $1 }')
+      ;;
+    *)
+      gcloud config set project "${INPUT}"
+      echo "${GREEN}[✓]${NC} Project ${LIGHT_BLUE}"${INPUT}"${NC} Active!"
+      ;;
+    esac
+  }
+
+fi
+
 
 ##############################
 ##### AWS CLI Functions ######
@@ -394,7 +321,9 @@ if [[ ${KC_RET} -eq 0 ]]; then
       for node in $(kubectl get no --no-headers | awk '$0 !~ /Disabled/ {print $1}')
       do
           echo -n "Node ${node} - "
-          kubectl describe no $node | grep --color -A4 'Allocated resources' | tail -n1 | awk '{print "CPU Requests " $1 " " $2 " Memory Requests: " $5 " " $6}'
+          kubectl describe no $node | \
+            grep --color -A4 'Allocated resources' | \
+            tail -n1 | awk '{print "CPU Requests " $1 " " $2 " Memory Requests: " $5 " " $6}'
       done
   }
   

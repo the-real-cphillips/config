@@ -5,7 +5,6 @@ alias eks_nodes='~/personal/python-snippets/list_instances.py'
 
 alias a2g="/opt/homebrew/bin/asciicast2gif"
 alias c7n='$(which custodian)'
-alias cdm='cd $GO2UPATH/mole'
 alias config="/usr/bin/git --git-dir=${HOME}/.cfg/ --work-tree=${HOME}"
 alias ecr_login="aws ecr get-login --no-include-email --region us-west-2"
 alias j2y="json_to_yaml"
@@ -57,9 +56,3 @@ alias prm=echo "$(which gh pr create --fill)"
 
 # Jenkins Testing
 alias jpv='~/work/repos/ops-tools/jenkins-pipeline-validator/validate.sh'
-
-# 2U Aliases
-#
-# Ansible
-alias atag='/Users/cphillips/work/repos/ops-tools/ansible-role-tags/latest_role_tags.py'
-alias ssmh='python3 /Users/cphillips/work/repos/ops-tools/ssm-session-finder/session_finder.py'
