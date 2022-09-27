@@ -14,10 +14,10 @@ ulimit -n 1024
 export ZSH=${HOME}/.oh-my-zsh
 export ZSH_THEME="powerlevel10k/powerlevel10k"
 
-if [[ $(uname) == 'Darwin' ]]; then
-  eval "$(ssh-agent -s)"
-  ssh-add  --apple-use-keychain ${HOME}/.ssh/id_rsa
-fi
+#if [[ $(uname) == 'Darwin' ]]; then
+#  eval "$(ssh-agent -s)"
+#  ssh-add  --apple-use-keychain ${HOME}/.ssh/id_rsa
+#fi
 
 # Config Settings
 CASE_SENSITIVE="true"
@@ -25,13 +25,15 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 HIST_STAMPS="mm/dd/yyyy"
 PROMPT_EOL_MARK=''
 
+
 # ASDF
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
 
 # Plugins
 plugins=(
 	ansible
-    asdf
+  asdf
+  gcloud
 	git
 	virtualenv
 	)
@@ -40,6 +42,10 @@ plugins=(
 # PATH
 export PATH="/opt/homebrew/bin:/usr/local/bin:/usr/bin:/usr/sbin:/sbin:/usr/local/sbin:${GOPATH}/workspace:${GOPATH}/bin:/usr/local/opt/openssl/bin:$PATH"
 
+# GCloud
+export CLOUDSDK_HOME="${HOME}/google-cloud-sdk"
+export USE_GKE_GCLOUD_AUTH_PLUGIN=True
+
 # Sourcing
 source ${ZSH}/oh-my-zsh.sh
 source <(kubectl completion zsh)
@@ -47,7 +53,6 @@ eval "$(op completion zsh)"; compdef _op op
 eval "$(thefuck --alias)"
 
 
-[[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Misc
@@ -70,10 +75,8 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/user85520017/tmp/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/user85520017/tmp/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f "${HOME}/google-cloud-sdk/path.zsh.inc" ]; then . "${HOME}/google-cloud-sdk/path.zsh.inc"; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/user85520017/tmp/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/user85520017/tmp/google-cloud-sdk/completion.zsh.inc'; fi
-
+if [ -f "${HOME}/google-cloud-sdk/completion.zsh.inc" ]; then . "${HOME}/google-cloud-sdk/completion.zsh.inc"; fi

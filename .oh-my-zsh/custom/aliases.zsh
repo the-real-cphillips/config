@@ -1,6 +1,9 @@
 # AWS
 alias eks_nodes='~/personal/python-snippets/list_instances.py'
 
+# GCP
+alias gcp='$(which gcloud)'
+
 # Misc
 
 alias a2g="/opt/homebrew/bin/asciicast2gif"
