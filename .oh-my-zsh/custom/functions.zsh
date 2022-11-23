@@ -33,20 +33,20 @@ function asdfm() {
             asdf list ${PKG}
             ;;
         'install')
-            printf "\n${LIGHT_BLUE}[I] Installing ${VER} of ${PKG}\n${NC}"
+            echo -e "\n${LIGHT_BLUE}[I] Installing ${VER} of ${PKG}\n${NC}"
             asdf plugin add ${PKG}
             asdf install ${PKG} ${VER}
             asdf global ${PKG} ${VER}
             asdf shell ${PKG} ${VER}
             asdf local ${PKG} ${VER}
             if [ $? -eq 0 ]; then
-                printf "${GREEN}[√] Success: installed ${VER} of ${PKG}\n${NC}";
+                echo -e "${GREEN}[√] Success: installed ${VER} of ${PKG}\n${NC}";
             else
-                printf "${RED}[X] Error: Install of ${PKG} Failed\n${NC}"
+                echo -e "${RED}[X] Error: Install of ${PKG} Failed\n${NC}"
             fi
             ;;
         *)
-            printf "${RED}[X] Invalid Option: ${PKG}\nValid Options: list, install\n${NC}"
+            echo -e "${RED}[X] Invalid Option: ${PKG}\nValid Options: list, install\n${NC}"
             ;;
     esac
 }
@@ -111,8 +111,7 @@ function gl_group_clone() {
 }
 
 # Open Current Repo (MAC ONLY) (LOCAL GITLAB B/C FLASHPOINT)
-function open_repo()
-{
+function open_repo() {
   if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
     local url
     url=$(git config --get remote.origin.url \
@@ -120,6 +119,24 @@ function open_repo()
       | sed -e "s/net:/net\//g"
     )
     open "$url"
+  else
+    echo 'Not inside git repository' 1>&2
+    return 1
+  fi
+}
+
+#Open Branch
+function open_br() {
+  if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+    local url
+    local branch
+    branch=$(git branch --show-current)
+    url=$(git config --get remote.origin.url \
+      | sed -e "s/git@/https:\/\//g" \
+      | sed -e "s/net:/net\//g" \
+      | sed -e "s/\.git//g"
+    )
+    open "${url}/-/tree/${branch}"
   else
     echo 'Not inside git repository' 1>&2
     return 1

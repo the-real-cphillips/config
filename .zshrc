@@ -41,6 +41,7 @@ plugins=(
 
 # PATH
 export PATH="/opt/homebrew/bin:/usr/local/bin:/usr/bin:/usr/sbin:/sbin:/usr/local/sbin:${GOPATH}/workspace:${GOPATH}/bin:/usr/local/opt/openssl/bin:$PATH"
+#export PATH="\$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
 # GCloud
 export CLOUDSDK_HOME="${HOME}/google-cloud-sdk"
