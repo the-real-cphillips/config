@@ -1,4 +1,5 @@
 # Ansible Exports
+export PATH="/opt/homebrew/opt/ansible@2.9/bin:$PATH"
 export ANSIBLE_INVENTORY=${HOME}/.ansible/aws_ec2.yml
 export ANSIBLE_NOCOWS=1
 # Used because of ansible...
@@ -7,6 +8,9 @@ export NO_PROXY=*
 
 # Brew
 export HOMEBREW_NO_AUTO_UPDATE=1
+
+# GCP
+export CLOUDSDK_PYTHON_SITEPACKAGES=1
 
 # Golang
 export GOPATH="${HOME}/.go"
