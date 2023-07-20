@@ -9,6 +9,7 @@ endif
 
 """ Calling used plugins
 call plug#begin()
+Plug 'APZelos/blamer.nvim'
 Plug 'RRethy/vim-illuminate'
 Plug 'avakhov/vim-yaml'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
@@ -52,6 +53,7 @@ set expandtab
 set nosmarttab
 set linebreak
 
+set mouse-=a
 """""""""""""""""""""""""
 
 """ Illuminate
@@ -68,7 +70,6 @@ map <Leader>f :IlluminationToggle!<CR>
 """" Color Stuff
 set termguicolors
 set background=dark
-colorscheme nordfox
 
 hi CursorColumn cterm=NONE ctermbg=darkgrey ctermfg=red guibg=darkgrey guifg=darkred
 nnoremap <Leader>c :set cursorcolumn!<CR>

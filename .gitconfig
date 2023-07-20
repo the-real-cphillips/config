@@ -16,7 +16,7 @@
     st = status
 [core]
     pager = less -iR
-    editor = /usr/local/bin/nvim
+	  editor = nvim
 	  excludesfile = ~/.gitignore_global
 [color]
     ui = true
@@ -24,15 +24,11 @@
     default = simple
 [pull]
     rebase = true
-[git-up "bundler"]
-    check = true
-[git-up "fetch"]
-    prune = true
 [pager]
 	branch = false
 [init]
 	defaultBranch = main
 
-[url "ssh://git@github.com/"]
-        insteadOf = https://github.com/
-        insteadOf = https://www.github.com/
+#[url "ssh://git@github.com/"]
+#        insteadOf = https://github.com/
+#        insteadOf = https://www.github.com/

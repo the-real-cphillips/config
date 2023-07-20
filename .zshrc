@@ -1,6 +1,7 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
+export SHELL=/bin/zsh
 DISABLE_UPDATE_PROMPT=true
 DISABLE_AUTO_UPDATE=true
 
@@ -32,15 +33,17 @@ PROMPT_EOL_MARK=''
 # Plugins
 plugins=(
 	ansible
-  asdf
-  gcloud
 	git
 	virtualenv
+  asdf
+  gcloud
+  poetry
 	)
 
 
 # PATH
 export PATH="/opt/homebrew/bin:/usr/local/bin:/usr/bin:/usr/sbin:/sbin:/usr/local/sbin:${GOPATH}/workspace:${GOPATH}/bin:/usr/local/opt/openssl/bin:$PATH"
+export PATH="/Users/cphillips/.local/bin:$PATH"
 #export PATH="\$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
 # GCloud
@@ -50,7 +53,6 @@ export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 # Sourcing
 source ${ZSH}/oh-my-zsh.sh
 source <(kubectl completion zsh)
-eval "$(op completion zsh)"; compdef _op op
 eval "$(thefuck --alias)"
 
 
@@ -65,6 +67,10 @@ if type brew &>/dev/null; then
 fi
 
 autoload -U +X bashcompinit && bashcompinit
+autoload -Uz compinit && compinit
+
+poetry completions zsh > $ZSH_CUSTOM/plugins/poetry/_poetry
+
 config='/usr/bin/git --git-dir=${HOME}/.cfg/ --work-tree=${HOME}'
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
@@ -81,3 +87,8 @@ if [ -f "${HOME}/google-cloud-sdk/path.zsh.inc" ]; then . "${HOME}/google-cloud-
 
 # The next line enables shell command completion for gcloud.
 if [ -f "${HOME}/google-cloud-sdk/completion.zsh.inc" ]; then . "${HOME}/google-cloud-sdk/completion.zsh.inc"; fi
+
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/cphillips/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)

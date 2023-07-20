@@ -19,6 +19,30 @@ function start-tmux() {
   ~/tmux-start.sh
 }
 
+function login() {
+  local command="${1:-all}"
+  local _vpn_login='/usr/local/bin/2u-vpnn c'
+  local _2u_login='/usr/local/bin/_2u-loginn'
+  local _ol_login='open https://2u.onelogin.com'
+
+  case "${command}" in
+    v | vpn)
+      eval "${_vpn_login}"
+    ;;
+    t | twou)
+      eval "${_2u_login}"
+    ;;
+    o | ol)
+      eval "${_vpn_login}"
+    ;;
+    *) 
+      eval "${_vpn_login}"
+      eval "${_2u_login}"
+      eval "${_ol_login}"
+    ;;
+  esac
+}
+
 ###################################
 ########       ASDF       #########
 ###################################
@@ -225,9 +249,9 @@ if [[ ${AWS_CLI_RET} -eq 0 ]]; then
   function aws_creds() {
       local profile_name=${1}
       if [[ -z "$profile_name" ]]; then
-          printf "NAME\tROLE_ARN\n" | expand -t 20
+          printf "NAME\tROLE_ARN\n" | expand -t 40
           for name in $(aws configure list-profiles | sort | grep -v default);
-            do printf "${name}\t$(aws configure get role_arn --profile ${name})\n" | expand -t 20;
+            do printf "${name}\t$(aws configure get role_arn --profile ${name})\n" | expand -t 40;
           done
       else
           aws configure get role_arn --profile ${profile_name}

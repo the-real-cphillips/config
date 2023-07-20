@@ -9,23 +9,20 @@
 
 """ Calling used plugins
 call plug#begin()
-  Plug 'EdenEast/nightfox.nvim', { 'tag': 'v1.0.0' }
+  Plug 'rust-lang/rust.vim'
   Plug 'APZelos/blamer.nvim'
+  Plug 'EdenEast/nightfox.nvim',
   Plug 'RRethy/vim-illuminate'
   Plug 'avakhov/vim-yaml'
   Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
   Plug 'hashivim/vim-terraform'
   Plug 'terryma/vim-multiple-cursors'
-  " https://github.com/nvim-lualine/lualine.nvim#default-configuration
   Plug 'nvim-lualine/lualine.nvim'
-  Plug 'kyazdani42/nvim-web-devicons'
-  Plug 'kyazdani42/nvim-tree.lua'
+  Plug 'nvim-tree/nvim-web-devicons'
 call plug#end()
 
 """ Require plugin configs
-" lua require('namespace.plugin')
 lua require('the-real-cphillips.lualine')
-lua require('the-real-cphillips.nerd-tree')
 
 """ Plugin Configurations
 
@@ -60,7 +57,9 @@ set expandtab
 set nosmarttab
 set linebreak
 
-"""""""""""""""""""""""""
+set mouse-=a
+
+""""""""""""""""""""""""
 
 """ Illuminate
 augroup illuminate_augroup
