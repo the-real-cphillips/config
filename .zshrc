@@ -37,13 +37,12 @@ plugins=(
 	virtualenv
   asdf
   gcloud
-  poetry
 	)
 
 
 # PATH
 export PATH="/opt/homebrew/bin:/usr/local/bin:/usr/bin:/usr/sbin:/sbin:/usr/local/sbin:${GOPATH}/workspace:${GOPATH}/bin:/usr/local/opt/openssl/bin:$PATH"
-export PATH="/Users/cphillips/.local/bin:$PATH"
+export PATH="/Users/cphillips/.local/bin:/Users/cphillips/Library/Python/3.11/bin:$PATH"
 #export PATH="\$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
 # GCloud
@@ -69,7 +68,6 @@ fi
 autoload -U +X bashcompinit && bashcompinit
 autoload -Uz compinit && compinit
 
-poetry completions zsh > $ZSH_CUSTOM/plugins/poetry/_poetry
 
 config='/usr/bin/git --git-dir=${HOME}/.cfg/ --work-tree=${HOME}'
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
@@ -92,3 +90,4 @@ if [ -f "${HOME}/google-cloud-sdk/completion.zsh.inc" ]; then . "${HOME}/google-
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="/Users/cphillips/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"

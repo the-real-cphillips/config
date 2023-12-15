@@ -38,6 +38,7 @@ alias tfi="/opt/homebrew/bin/terraform import"
 alias tfp="/opt/homebrew/bin/terraform plan"
 alias tfw="/opt/homebrew/bin/terraform workspace"
 alias tfws="/opt/homebrew/bin/terraform workspace select"
+alias tfwl="/opt/homebrew/bin/terraform workspace list"
 
 # Molecule aliases
 alias m='molecule'

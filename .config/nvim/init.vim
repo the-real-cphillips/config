@@ -57,7 +57,7 @@ set expandtab
 set nosmarttab
 set linebreak
 
-set mouse-=a
+set mouse=
 
 """"""""""""""""""""""""
 

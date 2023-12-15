@@ -15,14 +15,68 @@ RED='\033[0;31m'
 R='\033[0;31m'
 NC='\033[0m'
 
+#### 
+
+function check_aws_org() {
+  local acct=${1}
+  aws organizations list-accounts --profile 'Audit-ViewOnly' \
+    | jq '.Accounts[] | select(.Id | contains("${acct}"))'
+}
+
 function start-tmux() {
   ~/tmux-start.sh
 }
 
+function ad-get-users-groups() {
+  local user=${1:?"No Username Provided/"}
+  dscl '/Active Directory/2TOR/All Domains' read "/Users/${user}" dsAttrTypeNative:memberOf \
+    | (read -r; printf "%s\n" "$REPLY"; sort -f)
+}
+
+function ad-get-group-members() {
+  local group=${1:?"No Group Provided/"}
+  dscl '/Active Directory/2TOR/All Domains' read "/Groups/${group}" GroupMembership \
+    | (read -r; printf "%s\n" "$REPLY"; sort -f)
+}
+
+
+function vpn_wrap() {
+  local command="${1:-status}";
+  local mfa="${2}";
+  local -r _vpn_bin='/opt/cisco/anyconnect/bin/vpn';
+  
+  case "$command" in
+    s | status)
+      echo -e 'Checking current VPN status...\n';
+      eval "${_vpn_bin} -s state"
+    ;;
+    c | connect)
+      $(/opt/cisco/anyconnect/bin/vpn state | grep "Connected" > /dev/null 2>&1)
+      if [[ $? == 0 ]]; then
+        echo "[I] Already Connected!\n"
+      else
+        echo -e 'Connecting to VPN...\n';
+        ~/login_scripts/_vpn_autoconnect ${mfa}
+      fi
+    ;;
+    d | disconnect)
+      echo -e 'Disconnecting from VPN...\n';
+      eval "${_vpn_bin} -s disconnect"
+    ;;
+    *)
+      echo "Invalid option '${command}' ([s]tatus|[c]onnect|[d]isconnect)";
+      return 1
+    ;;
+  esac
+}
+
 function login() {
   local command="${1:-all}"
-  local _vpn_login='/usr/local/bin/2u-vpnn c'
-  local _2u_login='/usr/local/bin/_2u-loginn'
+  local mfa="${2:-1}"
+
+  local _vpn_login='vpn_wrap c ${mfa}'
+  local _2u_login='~/login_scripts/_2u-login ${mfa}'
+  local _sso_login="aws sso login --sso-session 2u-sso"
   local _ol_login='open https://2u.onelogin.com'
 
   case "${command}" in
@@ -32,12 +86,33 @@ function login() {
     t | twou)
       eval "${_2u_login}"
     ;;
+    s | sso)
+      eval "${_sso_login}"
+    ;;
     o | ol)
+      eval "${_ol_login}"
+    ;;
+    vts )
       eval "${_vpn_login}"
+      eval "${_2u_login}"
+      eval "${_sso_login}"
+    ;;
+    vt )
+      eval "${_vpn_login}"
+      eval "${_2u_login}"
+    ;;
+    h | -h | --help )
+      echo "Available Options: v|vpn, t|twou, s|sso, o|ol, vt"
+      echo "v|vpn - Just VPN"
+      echo "t|twou - Just 2u-login"
+      echo "s|sso - Just AWS SSO"
+      echo "o|ol - Open Webpage to OneLogin"
+      echo "vt - VPN and 2u-login"
     ;;
     *) 
       eval "${_vpn_login}"
       eval "${_2u_login}"
+      eval "${_sso_login}"
       eval "${_ol_login}"
     ;;
   esac
