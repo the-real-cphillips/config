@@ -41,9 +41,6 @@ plugins=(
 
 
 # PATH
-export PATH="/opt/homebrew/bin:/usr/local/bin:/usr/bin:/usr/sbin:/sbin:/usr/local/sbin:${GOPATH}/workspace:${GOPATH}/bin:/usr/local/opt/openssl/bin:$PATH"
-export PATH="/Users/cphillips/.local/bin:/Users/cphillips/Library/Python/3.11/bin:$PATH"
-#export PATH="\$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
 # GCloud
 export CLOUDSDK_HOME="${HOME}/google-cloud-sdk"
@@ -75,6 +72,7 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 if [ -e ${HOME}/.nix-profile/etc/profile.d/nix.sh ]; then . ${HOME}/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
+export GOPATH=$HOME/go
 export OL_MFA=0
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -86,8 +84,9 @@ if [ -f "${HOME}/google-cloud-sdk/path.zsh.inc" ]; then . "${HOME}/google-cloud-
 # The next line enables shell command completion for gcloud.
 if [ -f "${HOME}/google-cloud-sdk/completion.zsh.inc" ]; then . "${HOME}/google-cloud-sdk/completion.zsh.inc"; fi
 
+#export PATH="/opt/homebrew/bin:/usr/local/bin:/usr/bin:/usr/sbin:/sbin:/usr/local/sbin:/usr/local/opt/openssl/bin:/Users/cphillips/.local/bin:/Users/cphillips/Library/Python/3.11/bin:/usr/local/go/bin:$PATH"
+export PATH="/opt/homebrew/bin:/usr/local/bin:/usr/bin:/usr/sbin:/sbin:/usr/local/sbin:/usr/local/opt/openssl/bin:/Users/cphillips/.local/bin:/Users/cphillips/Library/Python/3.11/bin:$GOPATH/bin:$PATH"
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="/Users/cphillips/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
-export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"

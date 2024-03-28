@@ -17,6 +17,12 @@ NC='\033[0m'
 
 #### 
 
+
+function vtog() {
+  local mov_file=${1}
+  ffmpeg -i ${mov_file}.mov -r 10 ${mov_file}.gif && gifsicle -O3 ${mov_file}.gif -o ${mov_file}.gif
+}
+
 function check_aws_org() {
   local acct=${1}
   aws organizations list-accounts --profile 'Audit-ViewOnly' \
@@ -97,9 +103,17 @@ function login() {
       eval "${_2u_login}"
       eval "${_sso_login}"
     ;;
+    vs )
+      eval "${_vpn_login}"
+      eval "${_sso_login}"
+    ;;
     vt )
       eval "${_vpn_login}"
       eval "${_2u_login}"
+    ;;
+    n )
+      eval "${_vpn_login}"
+      eval "assume '2U,-Inc./Admin'"
     ;;
     h | -h | --help )
       echo "Available Options: v|vpn, t|twou, s|sso, o|ol, vt"

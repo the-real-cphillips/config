@@ -15,12 +15,6 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 # GCP
 export CLOUDSDK_PYTHON_SITEPACKAGES=1
 
-# Golang
-export GOPATH="${HOME}/.go"
-export GOROOT="$(brew --prefix golang)/libexec"
-export GOBIN=$GOPATH/bin
-export PATH="$PATH:$GOPATH/bin:$GOROOT/bin"
-
 # Kubernetes Exports
 export KUBECONFIG=${HOME}/.kube/config
 export KUBERNETES_PROVIDER=aws

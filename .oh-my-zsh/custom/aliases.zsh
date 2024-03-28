@@ -21,6 +21,7 @@ alias servethis="python3 -m http.server $1"
 alias showhidden="defaults write com.apple.finder AppleShowAllFiles TRUE && killall Finder"
 alias tmat="tmux attach -t gif || tmux new -s gif"
 alias yl="/opt/homebrew/bin/yamllint"
+alias 2uex='source ~/.oh-my-zsh/custom/2u-exports.sh'
 
 # Virtualenvs
 alias ans="source ~/virtualenv/ansible/bin/activate"
@@ -63,3 +64,4 @@ alias prm=echo "$(which gh pr create --fill)"
 
 # Jenkins Testing
 alias jpv='~/work/repos/ops-tools/jenkins-pipeline-validator/validate.sh'
+
