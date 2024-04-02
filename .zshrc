@@ -40,8 +40,6 @@ plugins=(
 	)
 
 
-# PATH
-
 # GCloud
 export CLOUDSDK_HOME="${HOME}/google-cloud-sdk"
 export USE_GKE_GCLOUD_AUTH_PLUGIN=True
