@@ -1,7 +1,7 @@
 font-family = "Hack Nerd Font Mono"
 font-thicken = true
 theme = "carbonfox"
-#initial-command = "zsh ~/tmux-start.sh"
+initial-command = "zsh ~/tmux-start.sh"
 copy-on-select = true
 
 shell-integration = "zsh"
