@@ -15,10 +15,10 @@ ulimit -n 1024
 export ZSH=${HOME}/.oh-my-zsh
 export ZSH_THEME="powerlevel10k/powerlevel10k"
 
-#if [[ $(uname) == 'Darwin' ]]; then
-#  eval "$(ssh-agent -s)"
-#  ssh-add  --apple-use-keychain ${HOME}/.ssh/id_rsa
-#fi
+if [[ $(uname) == 'Darwin' ]]; then
+  eval "$(ssh-agent -s)"
+  ssh-add  --apple-use-keychain ${HOME}/.ssh/id_ed25519
+fi
 
 # Config Settings
 CASE_SENSITIVE="true"
@@ -27,15 +27,11 @@ HIST_STAMPS="mm/dd/yyyy"
 PROMPT_EOL_MARK=''
 
 
-# ASDF
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
 # Plugins
 plugins=(
 	ansible
 	git
 	virtualenv
-  asdf
   gcloud
 	)
 
